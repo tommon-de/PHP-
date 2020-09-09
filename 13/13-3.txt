@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例13-3</title>
+</head>
+
+<body>
+<?php
+	$db_server="localhost";	//mysql服务器地址
+	$db_user="root";	//mysql用户名
+	$db_pw="root";		//登录密码
+	$db_name="guestbook";	//数据库名
+	@$conn=mysql_connect($db_server,$db_user,$db_pw)or die("数据库服务器无法连接");
+	if(!$conn)
+		{die('数据库连接失败'.mysql_error());}
+	//打开数据库
+	$db_selected=mysql_select_db($db_name);
+	if(!$db_selected)
+		{die("数据库打开失败".mysql_error());}
+	$sqls="select * from class";	//查询语句
+	$res=mysql_query($sqls,$conn);
+	if(!$res)
+		{echo "暂无任何课程信息";}
+	else
+		{	echo "课程信息如下：<br>";
+			echo "<table width=500 border=1 cellspacing=0>";
+			//将记录内容转换成数组并输出数组元素
+			for($i=0;$i<mysql_num_rows($res);$i++)
+				{	$res_list=mysql_fetch_array($res);
+					echo "<tr>";
+					echo "<td>".$res_list[0]."</td>";	//第一个字段内容
+					echo "<td>".$res_list[1]."</td>";	//第二个字段内容
+					echo "<td>".$res_list[2]."</td>";	//第三个字段内容
+					echo "<td>".$res_list[3]."</td>";	//第四个字段内容
+					echo "<td>".$res_list[4]."</td>";	//第五个字段内容
+					echo "</tr>";
+					}
+			echo "</table>";
+			mysql_free_result($res);	//释放记录集
+		}
+	mysql_close($conn);	//关闭数据连接
+?>
+</body>
+</html>

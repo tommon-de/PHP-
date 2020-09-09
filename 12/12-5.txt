@@ -1,0 +1,12 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$tan_color_1=imagecolorallocate($img,230,230,0);//矩形1的颜色
+	$tan_color_2=imagecolorallocate($img,0,250,250);//矩形2的颜色
+	imagerectangle($img,50,20,120,80,$tan_color_1);	//矩形1
+	imagefilledrectangle($img,150,20,350,80,$tan_color_2);//矩形2
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

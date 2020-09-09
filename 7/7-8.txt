@@ -1,0 +1,22 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-8</title>
+</head>
+
+<body>
+<?php
+    $student_1=array("C15F3601","张明","男","软件技术");
+    $student_2=array("C15F3602","李英","女","软件技术");
+    $student_3=array("C15F3603","王强","男","软件技术");
+    $student_4=array("C15F3604","赵红","女","软件技术");
+    $student=array($student_1,$student_2,$student_3,$student_4);
+    for($i=0;$i<=3;$i++)
+        {
+			for($j=0;$j<=3;$j++)
+				echo $student[$i][$j].','; 
+            echo "<br>";
+        }
+?>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<title>例13-4</title>
+<?php
+	$db_server="localhost";	//mysql服务器地址
+	$db_user="root";	//mysql用户名
+	$db_pw="root";		//登录密码
+	$db_name="guestbook";	//数据库名
+	@$conn=mysql_connect($db_server,$db_user,$db_pw)or die("数据库服务器无法连接");
+	$db_selected=mysql_select_db($db_name);
+	$sqls="select * from class";	//查询语句
+	$res=mysql_query($sqls,$conn);
+	$r_count=mysql_num_rows($res); //统计查询结果的记录数
+	echo "共搜到相关记录".$r_count."条";
+	mysql_free_result($res);	//释放记录集
+	mysql_close($conn);	//关闭数据连接
+?>

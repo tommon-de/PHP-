@@ -1,0 +1,27 @@
+﻿<title>例8-13接口的继承</title>
+<?php
+	interface A		//接口A
+	{
+		public function sing();	//唱歌方法
+	}
+	interface B extends A	//接口B继承接口A
+	{
+		public function dance();	//接口B的跳舞方法
+	}
+	//接口B的实现类,要同时实现sing()与dance()
+	class C implements B	
+	{
+		public function sing()
+		{
+			echo "Let's sing together<br>";
+		}
+		public function dance()
+		{
+			echo "People were dancing in the square";
+		}
+	}
+	//实例化类C
+	$art= new C;
+	$art->sing();
+	$art->dance();
+?>

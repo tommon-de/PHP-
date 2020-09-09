@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例2-11登陆验证</title>
+</head>
+
+<body>
+<?php
+//信息获取与验证登陆程序
+if(isset($_POST['login']))//判断是否点击“登陆”按钮
+{
+	$user_name=$_POST['uname'];
+	$user_pass=$_POST['upw'];
+	if($user_name=="admin"&&$user_pass=="admin888")
+	{	
+		echo "登陆成功！";
+		exit;
+	}
+	else
+		echo "登陆失败！";
+}
+?>
+<!--表单使用post方式提交信息-->
+<form action="" method="post">
+<!--登陆信息填写-->
+<h4 >用户登陆</h4>
+<td height="30">用户名：<input type="text" name="uname" /></td>
+<td>密 码： <input type="password" name="upw" /></td>
+<td ><input name="login" type="submit" value="登陆" /></td>
+</form>
+
+</body>
+</html>

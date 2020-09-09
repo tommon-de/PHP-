@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,
+maximum-scale=1.0 user-scalable=no">
+<title>例9-4判断表单数据</title>
+</head>
+
+<body>
+<form action="" method="post" name="form1">
+    <input type="text" name="s" id="s">
+    <br>
+    <input type="submit" name="button" id="button" value="提交" >
+</form>
+<?php
+if(isset($_POST['button']))
+{
+	echo "你点击了按钮<br>";
+	if(isset($_POST['s']))
+	{
+		echo "控件s存在<br>";
+		if(empty($_POST['s']))
+			echo "控件s的值为空";
+		else
+			echo "控件s的值为".$_POST['s'];
+	}
+}
+?>
+</body>
+</html>

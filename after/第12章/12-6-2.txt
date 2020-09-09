@@ -1,0 +1,69 @@
+<?php
+if(isset($_POST['button'])){
+//数据检查函数
+	function check_file($_files){
+	if($_files['pic']['name']=="")
+		return 0;
+	else
+		return 1;
+	}
+//图片类型检查函数
+	function check_type($_files){
+	if($_files['pic']['type']!='image/pjpeg' && $_files['pic']['type']!='image/jpeg')
+		return 0;
+	else
+		return 1;
+	 }
+//函数调用
+		if(0==check_file($_FILES))
+	{
+		header("Content-type:text/html;charset=utf-8");
+		echo "<script>alert('请选择要上传的图片');
+		window.location.href='27-6-2.php';</script>";
+	}
+	if($_POST['txt']=="")
+	{
+		header("Content-type:text/html;charset=utf-8");
+		echo "<script>alert('请填写水印文字的内容');
+		window.location.href='27-6-2.php';</script>";
+	}
+	if(0==check_type($_FILES))
+	{
+		header("Content-type:text/html;charset=utf-8");
+		echo "<script>alert('图片格式不是jpg类型，请重新选择');
+		window.location.href='27-6-2.php';</script>";
+	}
+
+
+	$txt=$_POST['txt'];
+	//上传图片
+	$pic_name=$_FILES['pic']['name'];
+	if(check_type($_FILES)!=0)
+		move_uploaded_file($_FILES['pic']['tmp_name'],$pic_name);
+	//给图片打水印
+	$image = imagecreatefromjpeg($pic_name);
+	$info=getimagesize($pic_name);
+	$red=imagecolorallocate($image,200,0,12);
+	imagettftext($image,15,0,$info[0]-200,$info[1]-20,$red,'simhei.ttf',$txt);
+	//输出图像
+	header("content-type:image/png");
+	imagepng($image);
+	imagedestroy($image);
+}
+   header("Content-type:text/html;charset=utf-8"); 
+echo 
+<<<form
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>请选择要上传的图片：
+    <label for="pic"></label>
+    <input type="file" name="pic" id="pic">
+<br />
+  请输入水印文字内容：
+  <label for="txt"></label>
+  <input type="text" name="txt" id="txt" />
+  <br />
+  <input type="submit" name="button" id="button" value="上传图片" />
+  </p>
+</form>
+form;
+?>

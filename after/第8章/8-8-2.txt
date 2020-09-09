@@ -1,0 +1,26 @@
+﻿<?php	//应用练习第2题
+	class Person{
+		protected $name;
+		protected $sex;
+		function __construct($name,$sex){
+			$this->name=$name;
+			$this->sex=$sex;
+		}
+	}
+	class Student extends Person{
+		private $sid;
+		private $sclass;
+		function __construct($name,$sex,$sid,$sclass){
+			$this->name=$name;
+			$this->sex=$sex;
+			$this->sclass=$sclass;
+			$this->sid=$sid;
+		}
+		function print_info(){
+			echo $this->name."同学，性别：".$this->sex."<br>";
+			echo "学号：".$this->sid."，班级:".$this->sclass;
+		}
+	}
+	$p=new Student("李超","男","C16F3800","16移动应用开发班");
+	$p->print_info();
+?>

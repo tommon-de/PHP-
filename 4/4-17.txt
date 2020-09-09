@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-17</title>
+</head>
+
+<body>
+<?php
+	$i=0;
+	echo "20以内所有不是2与3公倍数的有：";
+	while($i<20)
+	{
+		$i++;
+		if($i%2==0&&$i%3==0)
+			break;
+		echo $i.'、';	
+	}
+	echo '循环结构结束<br />';
+	echo "这是break控制符的示范";
+?>
+</body>
+</html>

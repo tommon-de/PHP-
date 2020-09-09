@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-4</title>
+</head>
+
+<body>
+<?php
+    $A=92;
+    $B=23.12;
+    printf("变量A两位小数格式：%1\$.2f<br>变量B整数格式：%2\$u<br>变量A整数格式:%1\$u",$A,$B);
+?>
+</body>
+</html>

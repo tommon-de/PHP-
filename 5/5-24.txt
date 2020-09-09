@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例5-24</title>
+</head>
+
+<body>
+<?php
+	function my_fun($A,$B)
+	{	
+		$A=$A+3;
+		echo '$A+3='.$A.'<br>';
+		return;	//此句以下的函数体不再执行
+		$B=$B+3;
+		echo '$B+3='.$B.'<br>';
+	 }
+	 $d1=2;
+	 $d2=3;
+	 my_fun($d1,$d2);//调用my_fun()
+?>
+</body>
+</html>

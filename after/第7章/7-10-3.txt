@@ -1,0 +1,8 @@
+﻿<?php
+	for($i=0;$i<19;$i++)
+		$A[$i]=rand(1,50);
+	$B=array_unique($A);//删除重复元素
+	sort($B);//升序排序
+	for($i=0;$i<count($B);$i++)
+		echo $B[$i]."、";
+?>

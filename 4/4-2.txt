@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-2</title>
+</head>
+
+<body>
+<?php
+		$score=50;
+		if($score>=60)
+			{
+				echo '分数：'.$score.'分<br>';
+				echo "恭喜您，考试通过了！<br>";
+			}
+		else
+			{
+				echo '分数：'.$score.'分<br>';
+				echo "很抱歉，考试不通过！<br>";
+			}
+		echo "成绩鉴定结束";
+?>
+</body>
+</html>

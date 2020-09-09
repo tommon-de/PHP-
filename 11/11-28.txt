@@ -1,0 +1,17 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-28 fpassthru()</title>
+</head>
+<body>
+<?php
+    $f_path="E:\\myphp\\11-28.txt";
+    $f_num=fopen($f_path,"r");  //打开文件
+   	echo "[标题]".nl2br(fgets($f_num));	//读取一行
+    echo "[正文]<br>";
+    $c_length=fpassthru($f_num);
+    echo "<br>共读取到".$c_length."个字符";
+    fclose($f_num);     //关闭文件
+?>
+</body>
+</html>

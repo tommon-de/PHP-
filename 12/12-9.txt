@@ -1,0 +1,18 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$text_color=imagecolorallocate($img,230,230,0);//文字颜色1
+	$str_1="image";
+	$str_2="罗浮春色";
+	$font_file="simhei.ttf";	//字体文件
+	//15号字,旋转0度
+	imagettftext($img,15,0,10,20,$text_color,$font_file,$str_1);
+	//25号字,倾斜10度,
+	imagettftext($img,25,10,10,80,$text_color,$font_file,$str_1);
+	//20号中文字符,0度倾斜
+	imagettftext($img,20,0,130,30,$text_color,$font_file,$str_2);
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

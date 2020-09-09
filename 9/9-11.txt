@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,
+maximum-scale=1.0 user-scalable=no">
+<title>例9-11 urlencode()</title>
+</head>
+
+<body>
+<?php
+	//设置URL参数的值
+	$str1="this&is&url_tags";
+	$str2=urlencode($str1);
+	echo "<a href='9-12.php?A=".$str1."'>9-12</a>";//未编码的url
+	echo "<br>";
+	echo "<a href='9-12.php?A=".$str2."'>9-12</a>";//编码后的url
+?>
+</body>
+</html>

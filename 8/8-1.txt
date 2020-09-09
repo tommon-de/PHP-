@@ -1,0 +1,44 @@
+﻿<title>例8-2</title>
+<?php
+//例8-1
+	class Student
+	{
+		//学生信息属性列表
+		public $s_name;
+		public $s_sex;
+		private $s_age;
+		protected $s_major;
+		//构造函数
+		function __construct($arg_age,$arg_major)
+		{
+			$this->s_age=$arg_age;
+			$this->s_major=$arg_major;
+		}
+		//定义输出学生信息的方法
+		public function Print_info()
+		{
+			echo "学生姓名:".$this->s_name."<br>";
+			echo "学生性别:".$this->s_sex."<br>";
+			echo "学生年龄:".$this->s_age."<br>";
+			echo "就读专业:".$this->s_major."<br>";
+		}
+		//析构函数
+		function __destruct()
+		{
+			echo "-----------------<br>";
+		}
+	}
+
+?>
+<?php
+	$my_student1=new Student(18,"计算机科学与技术");//初始化第一个对象
+	$my_student1->s_name="李小燕";		//给第一个学生对象的姓名属性赋值
+	$my_student1->s_sex="女";		//给性别属性赋值
+	$my_student1->Print_info();		//调用输出方法
+	$my_student1=NULL;				//释放对象
+	 
+	$my_student2=new Student(19,"移动应用开发");	//初始化第二个对象
+	$my_student2->s_name="张成";		
+	$my_student2->s_sex="男";
+	$my_student2->Print_info();
+?>

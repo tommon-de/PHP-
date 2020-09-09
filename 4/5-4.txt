@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例5-4</title>
+</head>
+
+<body>
+<?php
+	echo "现在是".date("Y")."年".date("m")."月".date("d")."日";
+	echo "[".date("l")." 星期".date("w")."]";
+	$noon=date("a")=="am"?"上午":"下午";
+	echo $noon.date("h:i:s")."<br>";
+	echo "本周是今年第".date("W")."周<br>";
+	echo "本月一共有".date("t")."天";
+?>
+</body>
+</html>

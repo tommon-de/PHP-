@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例6-8</title>
+<?php
+    $A="床前明月光，疑是地上霜";
+    $A1=substr($A,0,8);
+    $A2=substr($A,4,8);
+    $A3=substr($A,-6,6);
+    $A4=substr($A,4,-6);
+    echo $A1."<br>"; 
+    echo $A2."<br>";
+    echo $A3."<br>";
+    echo $A4;
+?>

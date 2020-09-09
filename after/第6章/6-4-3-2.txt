@@ -1,0 +1,76 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户注册</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="262" height="120" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="82">用户名</td>
+      <td width="176"><label for="u_name"></label>
+      <input name="u_name" type="text" id="u_name"   /></td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td><label for="pw"></label>
+      <input name="pw" type="password" id="pw" /></td>
+    </tr>
+    <tr>
+      <td>手机号码</td>
+      <td><label for="tel"></label>
+      <input name="tel" type="text" id="tel" /></td>
+    </tr>
+    <tr>
+      <td height="23">&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="注册" /></td>
+    </tr>
+  </table>
+</form>
+<?php
+	if(!empty($_POST['button']))
+	{	$uid=$_POST['u_name'];	//获取用户名
+		$upw=$_POST['pw'];		//获取密码
+		$utel=$_POST['tel'];	//获取手机码
+		$config=true;	//验证初始值通过
+		if (strlen($uid)==0)
+			{echo "用户名不能留空<br>";
+			 $config=false;}
+		if (strlen($upw)==0)
+			{echo "密码不能留空<br>";
+			 $config=false;}
+		if (strlen($utel)==0)
+			{echo "请填写用户名<br>";
+			$config=false;}
+		if (is_numeric(substr($uid,0,1)))//验证用户名首字符是否为数字
+		{	echo "用户名不合法<br>";	
+			$config=false;	
+		}
+		if(strlen($upw)<6)
+		{	echo "密码长度不够<br>";
+			$config=false;
+		}
+		//验证手机号码合法性
+		if(strcmp("1",substr($utel,0,1))!=0||strpos("124690",substr($utel,1,1))!=false||strlen($utel)!=11)
+		{	echo "手机号码不合法<br>";
+			$config=false;}
+		else
+		{	for($i=0;$i<strlen($utel);$i++)
+			{	$C=ord(substr($utel,$i,1));	//验证每一位手机是否数字
+				if($C<48||$C>57)
+					{echo "手机号码不合法<br>";
+					$config=false;
+					break;
+					}				
+			}
+			
+		}
+		if($config==true)
+		{echo "你的用户名：".$uid."<br>";
+		echo "你的密码：".$upw."<br>";
+		echo "你的手机：".$utel;}
+	}
+?>
+</body>
+</html>

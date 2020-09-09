@@ -1,0 +1,202 @@
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商城首页</title>
+<style type="text/css">
+.normal_text {
+	font-size: 12px;
+	color: #390;
+	text-decoration: none;
+}
+.field_text {
+	font-size: 12px;
+	color: #900;
+	text-decoration: none;
+}
+#top_banner {
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	background-color: #F96;
+}
+</style>
+</head>
+
+<body>
+<?php
+	session_start();
+	//退出登陆
+	if(isset($_GET['flg'])&&$_GET['flg']==0)
+	{
+		unset($_SESSION['uname']);
+	}
+	//加入书篮
+	$all_books=0;
+	if(!isset($_SESSION['uname'])||$_SESSION['uname']=="")
+	{	
+		//初始化书篮数据
+			$arr_book='+';	//创建图书名
+			$arr_count=0;	//创建图书数量
+			$arr_price=0;	//创建图书单价
+			setcookie('book',$arr_book,time()+15*24*3600);	//将书篮写入本地cookie
+			setcookie('num',$arr_count,time()+15*24*3600);
+			setcookie('price',$arr_price,time()+15*24*3600);
+	}
+	else
+	{
+		//读取cookie中的旧书篮数据
+		$arr_book=explode("@",$_COOKIE['book']);
+		$arr_count=explode("@",$_COOKIE['num']);
+		$arr_price=explode("@",$_COOKIE['price']);
+		for($i=0;$i<count($arr_count)-1;$i++)
+		{
+			$all_books=$all_books+$arr_count[$i+1];	//统计全部书本数量
+		}
+	}
+	if(isset($_POST['button']))
+	{
+		if(!isset($_SESSION['uname'])||$_SESSION['uname']=="")
+		{	
+			echo "<script language='javascript'>";
+			echo "alert('登陆以后才能添加购物车');";
+			echo "window.location.href='login.php';";
+			echo "</script>";
+		}
+		else	
+		{
+			$book=$_POST['bname'];	//获取加入书篮的图书信息
+			$arr_info=explode("#",$book);	//拆分成数组
+			$arr_book[0]=$_SESSION['uname'];	//第0个元素存储用户名
+			//更新书篮新数据
+			$key=array_search($arr_info[0],$arr_book);//查询对应书名
+			if(!$key)	//如果书篮中该书不存在
+			{
+				array_push($arr_book,$arr_info[0]);	//书名入栈
+				array_push($arr_count,1);
+				array_push($arr_price,$arr_info[1]);
+			}
+			else	//如果书篮中该书已存在
+			{
+				$arr_count[$key]+=1;	//该书数量加1
+			}
+			setcookie('book',implode("@",$arr_book),time()+15*24*3600);	//覆盖原书篮cookie
+			setcookie('num',implode("@",$arr_count),time()+15*24*3600);
+			setcookie('price',implode("@",$arr_price),time()+15*24*3600);
+			echo "<script language='javascript'>";
+			echo "alert('一本书添加到书篮成功');";
+			echo "window.location.href='index.php';";
+			echo "</script>";
+		}
+	}
+?>
+<table width="590" height="36" border="0" align="center" cellpadding="0" cellspacing="0" id="top_banner">
+  <tr>
+    <td width="118" height="36" bgcolor="#FF9900">书城首页</td>
+    <td width="269" align="center" bgcolor="#FF9900">
+    <?php
+		if(!isset($_SESSION['uname'])||$_SESSION['uname']=="")
+		{	echo "你尚未登陆，请先<a href='login.php'>登陆</a>";	}
+		else
+		{	echo "欢迎您，".$_SESSION['uname'];	
+			echo "<a href='index.php?flg=0'>退出登陆</a>";
+		}
+	?>
+    </td>
+    <td width="113" align="center" bgcolor="#FF9900">    
+    <a href="shopcar.php">我的书篮子[<?php echo $all_books;?>]</a>
+    </td>
+  </tr>
+</table>
+<table width="590" height="108" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="73" height="25" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="160" align="center" class="normal_text">PHP程序设计</td>
+    <td width="74" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="193" align="center" class="normal_text">JAVA程序设计</td>
+  </tr>
+  <tr>
+    <td height="22" align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥54.00</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥50.00</td>
+  </tr>
+  <tr>
+    <td height="24" align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">宇猫工作室</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">未来科技</td>
+  </tr>
+  <tr>
+    <td height="37" colspan="2" align="right" bgcolor="#CCCCCC"><form id="form1" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="PHP程序设计#54" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+    <td colspan="2" align="right" bgcolor="#CCCCCC"><form id="form2" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="JAVA程序设计#50" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+  </tr>
+</table>
+<table width="590" height="114" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="73" height="27" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="160" align="center" class="normal_text">三体-黑暗森林</td>
+    <td width="74" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="193" align="center" class="normal_text">平凡的世界</td>
+  </tr>
+  <tr>
+    <td height="25" align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥23.00</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥60.00</td>
+  </tr>
+  <tr>
+    <td height="25" align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">刘慈欣</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">路遥</td>
+  </tr>
+  <tr>
+    <td height="37" colspan="2" align="right" bgcolor="#CCCCCC"><form id="form3" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="三体-黑暗森林#23" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+    <td colspan="2" align="right" bgcolor="#CCCCCC"><form id="form4" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="平凡的世界#60" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+  </tr>
+</table>
+<table width="590" height="122" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="73" height="28" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="160" align="center" class="normal_text">三国演义</td>
+    <td width="74" align="center" bgcolor="#FFFFCC" class="field_text">图书名：</td>
+    <td width="193" align="center" class="normal_text">悲惨世界</td>
+  </tr>
+  <tr>
+    <td height="28" align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥34.00</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">单价：</td>
+    <td align="center" class="normal_text">￥35.00</td>
+  </tr>
+  <tr>
+    <td height="29" align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">罗贯中</td>
+    <td align="center" bgcolor="#FFFFCC" class="field_text">作者：</td>
+    <td align="center" class="normal_text">（英）雨果</td>
+  </tr>
+  <tr>
+    <td height="37" colspan="2" align="right" bgcolor="#CCCCCC"><form id="form5" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="三国演义#34" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+    <td colspan="2" align="right" bgcolor="#CCCCCC"><form id="form6" name="form1" method="post" action="">
+      <input name="bname" type="hidden" id="bname" value="悲惨世界#35" />
+      <input type="submit" name="button" id="button" value="加入书篮" />
+    </form></td>
+  </tr>
+</table>
+</body>
+</html>

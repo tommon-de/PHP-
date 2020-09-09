@@ -1,0 +1,31 @@
+<?php
+	//连接数据库
+	$db_server="localhost";
+	$db_user="root";
+	$db_pass="root";
+	$db_name="shops";
+	$conn=@mysql_connect($db_server,$db_user,$db_pass);
+	if($conn)
+		mysql_select_db($db_name);
+	else
+		echo "数据库服务器连接失败";
+	//添加数据
+	$g1=array("酷派C1-钛白手机",5,1138,"酷派京东旗舰店");
+	$g2=array("格力GL-2103B",10,2500,"昌明电器专卖店");
+	$g3=array("金士顿129G优盘",14,180.5,"圳信电子数码专卖店");
+	$g4=array("双飞燕DOD无线鼠标",18,54,"深圳瑞信电脑专卖店");
+	$gs=array($g1,$g2,$g3,$g4);
+	for($i=0;$i<4;$i++)
+	{
+		$sqls="insert into goods(g_name,g_class,g_price,g_provite)values('"
+		.$gs[$i][0]."',".$gs[$i][1].",".$gs[$i][2].",'".$gs[$i][3]."')";
+		$rs=mysql_query($sqls,$conn);
+		if(!$rs)
+			break;
+	}
+	if($i==4)
+		echo "商品信息全部存储成功";
+	else
+		echo "商品信息未能全部存储";
+
+?>

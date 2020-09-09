@@ -1,0 +1,7 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,200,120,80);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	imagejpeg($img);	//输出画布对象
+?>

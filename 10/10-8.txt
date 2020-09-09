@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例10-8</title>
+</head>
+
+<body>
+<?php
+    setcookie('uname',"",time()-3600);  //让cookie在一小时前失效
+    if(isset($_COOKIE['uname']))
+        echo "用户名是".$_COOKIE['uname']."<br>";   //输出用户名
+    else
+        echo "cookie已失效";
+?>
+</body>
+</html>

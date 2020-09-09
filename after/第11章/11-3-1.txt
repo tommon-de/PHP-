@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简易投票系统</title>
+<style type="text/css">
+#form1 table tr td {
+	font-family: "黑体";
+	color: #000;
+	font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="449" height="92" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="323" height="34" align="center" bgcolor="#0066FF">2017年“十佳学生”网络投票</td>
+    </tr>
+    <tr>
+      <td height="30" bgcolor="#FFFFCC"><p>
+        <label>
+          <input type="radio" name="s_name" value="张田芳" id="s_name_0" />
+          张田芳</label>
+        <label>
+          <input type="radio" name="s_name" value="张林秀" id="s_name_1" />
+          张林秀</label>
+        <label>
+          <input type="radio" name="s_name" value="袁定明" id="s_name_2" />
+          袁定明</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td height="28" align="center"><input type="submit" name="button" id="button" value="投票" /></td>
+    </tr>
+  </table>
+</form>
+<?php
+	$f_name="vote.txt";
+	$f_num=fopen($f_name,"r");
+	$f_len=filesize($f_name);	//获取投票结果文件的长度
+	if($f_len==0)
+		{$v_str="0,0,0";}
+	else
+		{$v_str=fread($f_num,$f_len);}//读取原有的投票结果
+	$v_result=explode(",",$v_str);	//分解结果到数组
+	fclose($f_num);
+	if(!empty($_POST['button']))
+		{	$vote=$_POST['s_name'];
+			if($vote=="张田芳")
+				{$v_result[0]++;}
+			elseif($vote=="张林秀")
+				{$v_result[1]++;}
+			elseif($vote=="袁定明")
+				{$v_result[2]++;}
+			$v_str=implode(",",$v_result);//将投票结果变成字符串
+			$f_num=fopen($f_name,"w");
+			fwrite($f_num,$v_str);//写入最新投票结果
+			fclose($f_num);
+		}
+?>
+<table width="444" height="90" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" bgcolor="#0066FF">投票结果</td>
+  </tr>
+  <tr>
+    <td>张田芳：<?php 
+	if(isset($v_result)){
+	echo $v_result[0];}
+	else
+		{echo "0";}
+	?>
+       票
+      
+   　　张林秀：
+      <?php 
+	if(isset($v_result)){
+		echo $v_result[1];}
+	else
+		{echo "0";}
+	?>
+      票
+　　　袁定明： 
+    <?php 
+	if(isset($v_result)){
+		echo $v_result[2];}
+	else
+		{echo "0";}
+		?>票<br /></td>
+  </tr>
+</table>
+</body>
+</html>

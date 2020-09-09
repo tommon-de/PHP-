@@ -1,0 +1,40 @@
+﻿<title>例8-11抽象类</title>
+<?php
+	abstract class Animal	//定义动物抽象类
+	{
+		//抽象方法
+		abstract function move();	
+		abstract function reproduction();
+	}
+	//定义兽类
+	class Beast extends Animal
+	{
+		function move()	//定义运动方法的实现
+		{
+			echo "兽类采取行走的方式运动<br>";
+		}
+		function reproduction()	//定义运动方法的实现
+		{
+			echo "兽类的繁殖方式以胎生为主<br>";
+		}
+
+	}
+	//定义禽类
+	class Birds extends Animal
+	{
+		function move()	//定义运动方法的实现
+		{
+			echo "禽类采取飞翔的方式运动<br>";
+		}
+		function reproduction()//定义繁殖方法的实现
+		{
+			echo "禽类主要以卵生的方式繁殖<br>";
+		}
+	}
+	$tiger=new Beast;
+	$eager=new Birds;
+	$tiger->move();
+	$tiger->reproduction();
+	$eager->move();
+	$eager->reproduction();
+?>

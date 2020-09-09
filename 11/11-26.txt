@@ -1,0 +1,14 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-26 file()</title>
+</head>
+<body>
+<?php
+    chdir("E:\\myphp");         //改变当前文件夹
+    $f_content=file("11-24.txt");    //读取文件到数组变量
+    foreach($f_content as $f )
+        {echo $f;}
+?>
+</body>
+</html>

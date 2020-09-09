@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-13</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+ 兴趣爱好：
+    <label>
+      <input type="checkbox" name="xq[]" value="读书" id="xq_0" />
+      读书</label>
+    <label>
+      <input type="checkbox" name="xq[]" value="音乐" id="xq_1" />
+    音乐</label>
+    <label>
+      <input type="checkbox" name="xq[]" value="摄影" id="xq_2" />
+    摄影</label>
+    <label>
+      <input type="checkbox" name="xq[]" value="篮球" id="xq_3" />
+    篮球</label>
+    <label>
+      <input type="checkbox" name="xq[]" value="舞蹈" id="xq_4" />
+    舞蹈</label>
+    <br />
+    <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+	if(!empty($_POST['button']))
+	{
+		$xq=$_POST['xq'];  //获取xq框的值
+		echo "你的兴趣爱好有：";
+		foreach($xq as $k)
+				echo $k .'&nbsp'; //输出数组中各个元素的值
+	}
+?>
+</body>
+</html>

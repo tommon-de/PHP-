@@ -1,0 +1,18 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-6 mkdir()</title>
+</head>
+<body>
+<?php
+    $path='E:\website\newfolder';
+    if(is_dir($path))
+          echo "文件夹已经存在";
+    else
+        {   
+            mkdir($path);   //创建文件夹
+            echo "创建文件夹成功";
+        }
+?>
+</body>
+</html>

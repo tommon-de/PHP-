@@ -1,0 +1,12 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-2</title>
+</head>
+<body>
+<?php
+    $d=opendir("E:\\sourcecode\12");    //路径错误
+	echo $d;
+?>
+</body>
+</html>

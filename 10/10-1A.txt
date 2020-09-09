@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例10-1</title>
+</head>
+
+<body>
+<?php
+    session_start();    //开启会话状态
+    $A="mysession";
+    $_SESSION['B']="mysession";
+    echo "<a href='10-1B.php'>输出</a>";
+?>
+</body>
+</html>

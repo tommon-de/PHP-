@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第4章习题3-5</title>
+</head>
+
+<body>
+
+<?php
+echo "所有的水仙花数有：";
+for($i=100;$i<=999;$i++)
+{
+	$m=$i;
+	$he=0;//各个数字的立方之和
+	while($m!=0)
+	{
+		$w=$m%10;//取出每个数位上的数字
+		$m=intval($m/10);
+		$he=$he+$w*$w*$w;	
+	}
+	if($he==$i)
+		{echo $he.'、';}
+}
+?>
+</body>
+</html>

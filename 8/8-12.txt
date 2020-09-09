@@ -1,0 +1,24 @@
+﻿<title>例8-12接口类</title>
+<?php
+	interface Move	//运动接口类
+	{
+		public function setAnimal($name);
+		public function moveStyle();
+	}
+	class Birds implements Move		//实现接口
+	{	
+		public $animal_name;
+		public function setAnimal($name)
+		{
+			$this->animal_name=$name;
+		}
+		public function moveStyle()
+		{
+			echo $this->animal_name." is a bird,<br>";
+			echo "It moves by fly";
+		}
+	}
+	$bird=new Birds;	//初始化实例
+	$bird->setAnimal("Eager");
+	$bird->moveStyle();
+?>

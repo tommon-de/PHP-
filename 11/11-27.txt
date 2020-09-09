@@ -1,0 +1,13 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-27 readfile()</title>
+</head>
+<body>
+<?php
+    $f=readfile("E:\\myphp\\11-24.txt");//读取并输出文件， 
+    echo "<br>";
+    echo "一共读取了".$f."个字节";
+?>
+</body>
+</html>

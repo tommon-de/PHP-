@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>我的PHP程序</title>
+</head>
+
+<body>
+<?php
+		$s=3526;
+		$w=0;
+		do
+			{ 
+				$k=$s%10;
+				$s=intval($s/10);
+				$w=$w*10+$k;
+			}
+		While($s!=0);
+		echo $w;
+?>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例10-1</title>
+</head>
+
+<body>
+<?php
+    session_start();    //打开会话状态
+    echo '普通变量A中的信息是'.$A."<br>";
+    echo "session['B']中的信息是:".$_SESSION['B'];
+?>
+</body>
+</html>

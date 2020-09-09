@@ -1,0 +1,134 @@
+.addnew{
+	text-decoration:none;
+	padding-right:15px;
+	padding-left:15px;
+	padding-top:3px;
+	padding-bottom:3px;
+	font-size:14px;
+	color:#666;
+	margin-right:10px;
+	border:1px solid #666;
+	background-color:#CCC;
+}
+.addnew:hover{
+	text-decoration:none;
+	padding-right:15px;
+	padding-left:15px;
+	padding-top:3px;
+	padding-bottom:3px;
+	font-size:14px;
+	color:#666;
+	margin-right:10px;
+	border:1px solid #666;
+	background-color:#FFF;
+}
+.page{
+	text-decoration:none;
+	font-size:14px;
+	background-color:#36C;
+	color:#FFF;
+	padding-bottom:3px;
+	padding-top:3px;
+	padding-left:10px;
+	padding-right:10px;
+	}
+.page:hover{
+	text-decoration:none;
+	font-size:14px;
+	background-color:#039;
+	color:#FF6;
+	padding-bottom:3px;
+	padding-top:3px;
+	padding-left:10px;
+	padding-right:10px;
+
+}
+.hang
+{
+	background-color:#FFF;
+}
+.hang:hover{
+	background-color:#ECE0FE;}
+
+/* CSS Document */
+
+#tlist {
+	background-color: #CCC;
+}
+#tprint {
+	font-size: 12px;
+	color: #333;
+	text-decoration: none;
+	border: 1px solid #333;
+}
+
+.list {
+	font-size: 15px;
+	color: #900;
+	border: 1px solid #900;
+}
+#tlist tr td #list {
+	font-size: 14px;
+	color: #333;
+	text-decoration: none;
+	background-color: #66C;
+}
+.button_style{
+	font-size:14px;
+	padding:3px 25px;
+	background-color:#999;
+	border:1px solid #666;
+}
+#tiqi{
+	width:98%;
+	font-size:14px;
+	line-height:25px;
+	height:auto;
+	border:1px solid #CCC;
+	background-color:#FFC;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+}
+#tiqi a:link{
+	font-size:14px;
+	padding:5px 20px;
+	background-color:#CCC;
+	border:1px solid #999;
+	text-decoration:none;
+}
+#tiqi a:hover{
+	font-size:14px;
+	padding:5px 20px;
+	background-color:#999;
+	border:1px solid #000;
+	text-decoration:none;
+	color:#FFF;
+}
+checkbox{
+	width:25px;
+	height:25px;
+	border:1px solid #900;
+}
+.field_sort{
+	font-size:15px;
+	color:#333;
+	text-decoration:none;
+}
+.field_sort:hover{
+	font-size:15px;
+	color:#FFF;
+	text-decoration:none;
+}#lab_select {
+	font-size: 14px;
+	color: #900;
+	text-decoration: none;
+	background-color: #FFC;
+}
+body{
+	font-size:14px;
+}
+#out_title{
+	font-family:"黑体";
+	font-size:20px;
+}

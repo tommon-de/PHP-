@@ -1,0 +1,28 @@
+﻿<title>例8-8 重载</title>
+<?php
+	class overload
+	{
+		function __call($name,$args)
+		{
+			echo "本次调用的方法:".$name."  ";
+			echo "参数的个数:".count($args)."<br>";
+			//根据参数的个数决定所调用的方法
+			if(count($args)==1)
+				echo $this->fun1($args[0]);
+			if(count($args)==2)
+				echo $this->fun2($args[0],$args[1]);
+		}
+		public function fun1($a)
+		{
+			return "fun1的结果是".$a."<br>";
+		}
+		public function fun2($a,$b)
+		{
+			$c=$a+$b;
+			return "fun2的结果是".$c."<br>";
+		}
+	}
+	$k=new overload;
+	$k->e(9);
+	$k->e(3,4);
+?>

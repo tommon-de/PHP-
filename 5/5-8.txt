@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例5-8</title>
+</head>
+
+<body>
+<?php
+	$d1=mktime(0,0,0,13,2,2016);
+	$d2=mktime(25,1,1,10,32,2016);
+	echo '$d1的时间为'.date("Y-m-d h:i:s",$d1);
+	echo "<br>";
+	echo '$d2的时间为'.date("Y-m-d h:i:s",$d2);
+?>
+</body>
+</html>

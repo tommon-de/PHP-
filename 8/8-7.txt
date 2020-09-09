@@ -1,0 +1,45 @@
+﻿<title>例8-7错误继承</title>
+<?php
+	class Book		//定义图书父类
+	{
+		public $book_name;	//成员变量，书名
+		protected $book_author;//保护成员变量，作者
+		private $book_price;//私有成员变量，价格
+		//构造函数 
+		function __construct($name,$author,$price)
+		{
+			$this->book_name=$name;
+			$this->book_author=$author;
+			$this->book_price=$price;
+			echo "===================<br>";
+		}
+		//声明私有方法，输出图书信息
+		public function bookInfo()
+		{
+				echo "图书名：《".$this->book_name."》<br>";
+				echo "作者：".$this->book_author."<br>";
+				echo "价格:".$this->book_price."元<br>";
+		}
+		private function book_comment()
+		{
+			echo "书籍是人类知识的桥梁！";
+		}
+	}
+	class Ancient_Book extends Book		//定义古籍子类
+	{
+		private $dynasty;			//子类成员变量：朝代属性
+		//子类的构造函数
+		function __construct($name,$author,$price,$dynasty)
+		{
+			$this->book_name=$name;
+			$this->book_author=$author;
+			$this->book_price=$price;		//此句无效
+			$this->dynasty=$dynasty;
+			echo "===================<br>";
+		}
+	}
+	//实例化一个古籍图书对象
+	$mybook2=new Ancient_Book('资治通鉴','司马光',300,'宋代');
+	$mybook2->bookInfo();	
+	$mybook2->book_comment();//此处将出错
+?>

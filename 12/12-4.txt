@@ -1,0 +1,12 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$line_color=imagecolorallocate($img,255,200,220);//线条的颜色
+	imageline($img,15,15,400,80,$line_color);	//线条一
+	imageline($img,55,52,350,10,$line_color);	//线条二
+	imageline($img,5,75,250,50,$line_color);	//线条三
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

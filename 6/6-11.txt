@@ -1,0 +1,18 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-11</title>
+</head>
+
+<body>
+<pre>
+<?php
+    $A="hello!my name is Rose";
+    $A1=str_replace(" ","",$A,$i); //替换所有的空格
+    echo $A."<br>";
+    echo $A1."<br>"; 
+    echo "一共有".$i."个空格被替换";
+?>
+</pre>
+</body>
+</html>

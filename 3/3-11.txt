@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例3-11</title>
+</head>
+
+<body>
+<form action="" method="post">请输入成绩
+	<input type="text" name="score" />
+    <input type="submit" name="button" value="提交" />
+</form>
+<?php
+	if(isset($_POST['button']))
+	{	
+		if ($_POST['score']!="")
+		{
+			$A=(float)$_POST['score'];	//将成绩转换为浮点型
+			if($A>=60)
+				 echo "恭喜你，考试通过了！"; 
+			else
+				 echo "很遗憾，考试没通过!"; 
+		}
+	}
+?>
+</body>
+</html>

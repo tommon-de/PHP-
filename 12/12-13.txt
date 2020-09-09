@@ -1,0 +1,23 @@
+<?php	
+	header("content-type:image/png");
+	$image = imagecreatetruecolor(300, 200);
+	// 颜色值
+	$gray     = imagecolorallocate($image, 0x00, 0xC0, 0xC0);
+	$darkgray = imagecolorallocate($image, 0x00, 0x90, 0x90);
+	$green    = imagecolorallocate($image, 0x00, 0xFF, 0x00);
+	$darkgreen= imagecolorallocate($image, 0x00, 0xDD, 0x10);
+	$red      = imagecolorallocate($image, 0xFF, 0x00, 0x00);
+	$darkred  = imagecolorallocate($image, 0x90, 0x00, 0x00);
+	//描绘3D饼图
+	for ($i = 110; $i >100; $i--) {
+	  imagefilledarc($image, 150, $i, 150, 100, 0, 45, $darkgreen, IMG_ARC_PIE);
+	  imagefilledarc($image, 150, $i, 150, 100, 45, 75 , $darkgray, IMG_ARC_PIE);
+	  imagefilledarc($image, 150, $i, 150, 100, 75, 360 , $darkred, IMG_ARC_PIE);
+	}
+	imagefilledarc($image, 150, 100, 150, 100, 0, 45, $green, IMG_ARC_PIE);
+	imagefilledarc($image, 150, 100, 150, 100, 45, 75 , $gray, IMG_ARC_PIE);
+	imagefilledarc($image, 150, 100, 150, 100, 75, 360 , $red, IMG_ARC_PIE);
+	//输出图像
+	imagepng($image);
+	imagedestroy($image);
+?>

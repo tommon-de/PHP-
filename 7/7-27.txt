@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-27</title>
+</head>
+
+<body>
+<?php
+	$s1=array(3,5,1,0,2);
+	$s2=array(5,2,0,3,1);
+	array_multisort($s1,$s2);	//同时对$S1与$s2排序
+	//输出排序后的$S1与$S2
+	print_r($s1);   
+	echo "<br>";
+	print_r($s2); 
+?>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-18</title>
+</head>
+
+<body>
+<?php
+    $student_info1=array("xh"=>"C15F3601","xm"=>"张明","xb"=>"男","zy"=>"软件技术");
+    $student_info2=array("xh"=>"C15F3602","xm"=>"李英","xb"=>"女","zy"=>"软件技术");
+    $student_info3=array("xh"=>"C15F3603","xm"=>"王强","xb"=>"男","zy"=>"软件技术");
+    $student_info4=array("xh"=>"C15F3604","xm"=>"赵红","xb"=>"女","zy"=>"软件技术");
+    $student=array("xs1"=>$student_info1,"xs2"=>$student_info2,"xs3"=>$student_info3,"xs4"=>$student_info4);
+    //遍历输出学生信息
+    foreach($student as $key=>$val)
+            echo $val['xh'].','.$val['xm'].','.$val['xb'].','.$val['zy'].'<br>';
+?>
+</body>
+</html>

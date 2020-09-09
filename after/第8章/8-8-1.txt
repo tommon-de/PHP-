@@ -1,0 +1,17 @@
+﻿<?php
+//应用练习第1题
+//求圆的面积
+class S_circle{
+	const pi=3.14;	//定义圆周率常量
+	private $s;	//面积变量
+	function __construct($r){
+		if($r>=0){
+			$this->s=self::pi*$r*$r;
+			echo "半径为".$r."的圆，面积为".$this->s."<br>";}
+		else
+			echo "非法的圆半径<br>";
+	}
+}
+$c1=new S_circle(10);	//实例化对象1
+$c2=new S_circle(5);	//实例化对象2
+?>

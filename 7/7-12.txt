@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-12</title>
+</head>
+
+<body>
+<?php
+    $A=array("Red","Green","blue","Yellow","White");
+    $B=array("Black","Gray");
+    array_splice($A,2,1);   //删除$A[2]，blue
+    print_r($A);
+    echo "<br>";
+    array_splice($A,1,0,$B);//从$A的[1]处开始插入$B;
+    print_r($A);
+?>
+</body>
+</html>

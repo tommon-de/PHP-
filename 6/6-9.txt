@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-9</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  请输入你的完整学号：
+  <label for="s_id"></label>
+  <input type="text" name="s_id" id="s_id" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+    if(!empty($_POST['button']))
+    {   $s_id=strtoupper($_POST['s_id']);   //统一将英文转为大写
+        if(strlen($s_id)!=8)
+        {echo"<script language='javascript'>alert('学号格式错误');</script>";
+        exit;
+        }
+        else
+        {$xl_id=substr($s_id,0,1); //获取学历编号  C14F2312
+            if($xl_id=="Z")
+                {$xl="中职";}
+            elseif($xl_id=="C")
+                {$xl="大专";}
+            elseif($xl_id=="U")
+                {$xl="本科";}
+            else
+                {echo"<script language='javascript'>alert('学号格式错误');</script>";
+                exit;}
+         $nj=substr($s_id,1,2); //获取年级编号
+         $xi_id=substr($s_id,3,1);  //获取系部编号
+         switch ($xi_id)
+            {case "A":
+                $xi="会计金融系";
+                break;
+             case "B":
+                $xi="工商管理系";
+                break;  
+             case "C":
+                $xi="人文社科系";
+                break;
+             case "D":
+                $xi="艺术设计";
+                break;
+             case "E":
+                $xi="外语系";
+                break;
+             case "F":
+                $xi="信息技术系";
+                break;
+             default:
+                echo"<script language='javascript'>alert('学号格式错误');</script>";
+            exit;}
+         $bj=substr($s_id,4,2);//获取班别编号
+         echo "你的学号是".$s_id."<br>";
+         printf("你是%s%s级%s%s班的学生",$xi,$nj,$xl,$bj);
+            }
+    }
+?>
+</body>
+</html>

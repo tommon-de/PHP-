@@ -1,0 +1,36 @@
+﻿<title>例8-5 构造函数</title>
+<?php
+	class Book
+	{
+		public $book_name;	//成员变量，书名
+		public $book_author;//成员变量，作者
+		public $book_price;//成员变量，价格
+		public $book_num;	//成员变量，数量
+		//构造函数 
+		function __construct($name,$author,$price,$number)
+		{
+			$this->book_name=$name;
+			$this->book_author=$author;
+			$this->book_price=$price;
+			$this->book_num=$number;
+			$this->bookInfo();//调用方法输出图书信息
+		}
+		//声明方法，输出图书信息
+		public function bookInfo()
+		{
+			if($this->book_num==0)
+				echo "图书《".$this->book_name."》已售空<br>";
+			else
+			{
+				echo "图书名：《".$this->book_name."》<br>";
+				echo "作者：".$this->book_author."<br>";
+				echo "价格:".$this->book_price."元<br>";
+				echo "库存:".$this->book_num."本<br>";
+			}
+		}
+	}
+	//实例化一个图书对象
+	$mybook=new Book('平凡的世界','路遥',54,12);
+	//实例化第二个图书对象
+	$mybook=new Book('悲惨世界','雨果',32,0);
+?>

@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-20</title>
+</head>
+
+<body>
+<?php
+    $arr1=array("a"=>1,"b"=>30,"c"=>2,"d"=>10);
+    echo '$arr1排序后如下:<br>';
+    if(sort($arr1)) //标准排序$arr1
+        {
+			while(list($key,$val)=each($arr1))
+             echo $key."=>".$val."、"; 
+        }
+    echo '<br>用SORT_STRING排序后如下：<br>';
+    if(sort($arr1,2)) //按字符串排序
+        {
+			while(list($key,$val)=each($arr1))
+            	echo $key."=>".$val."、"; 
+        }
+?>
+</body>
+</html>

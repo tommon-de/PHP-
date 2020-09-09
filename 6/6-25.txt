@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-25</title>
+</head>
+
+<body>
+<?php
+    $A="admin"; 
+    echo md5($A)."<br>";    //32位十六进制格式
+    echo md5($A,true);      //16位二进制格式
+?>
+</body>
+</html>

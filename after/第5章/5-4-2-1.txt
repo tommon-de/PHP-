@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第5章练习2-1</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  X=
+  <input name="x" type="text" id="x" size="4" /> 
+  Y=
+  <input name="y" type="text" id="y" size="4" /> 
+  Z=
+  <input name="z" type="text" id="z" size="4" />
+  <input type="submit" name="button" id="button" value="计算" />
+</form>
+<br />
+<?php
+if(isset($_POST['button']))
+{
+	function F($x,$y,$z)
+	{
+		return ($x+$z)/($y-$z)+($y+2*$z)/($x-2*$z);
+	}
+	$x=$_POST['x'];
+	$y=$_POST['y'];
+	$z=$_POST['z'];
+	if(is_numeric($x)&&is_numeric($y)&&is_numeric($y)&&$x!=2*$z&&$y!=$z)
+		echo "函数结果是:".F($x,$y,$z);	//调用函数
+	else
+		echo "数据有误";
+}
+?>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿<title>例8-6 类的继承</title>
+<?php
+	class Book		//定义图书父类
+	{
+		public $book_name;	//成员变量，书名
+		public $book_author;//成员变量，作者
+		public $book_price;//成员变量，价格
+		public $book_num;	//成员变量，数量
+		//构造函数 
+		function __construct($name,$author,$price,$number)
+		{
+			$this->book_name=$name;
+			$this->book_author=$author;
+			$this->book_price=$price;
+			$this->book_num=$number;
+			$this->bookInfo();
+		}
+		//声明方法，输出图书信息
+		public function bookInfo()
+		{
+			if($this->book_num==0)
+			{
+				echo "图书《".$this->book_name."》已借完<br>";
+			}
+			else
+			{
+				echo "图书名：《".$this->book_name."》<br>";
+				echo "作者：".$this->book_author."<br>";
+				echo "价格:".$this->book_price."元<br>";
+				echo "库存:".$this->book_num."本<br>";
+			}
+			echo "----------------------<br>";
+		}
+	}
+	class Ancient_Book extends Book		//定义古籍子类
+	{
+		private $dynasty;			//子类成员变量：朝代属性
+		//子类的构造函数
+		function __construct($name,$author,$price,$number,$dynasty)
+		{
+			$this->book_name=$name;
+			$this->book_author=$author;
+			$this->book_price=$price;
+			$this->book_num=$number;
+			$this->dynasty=$dynasty;
+			$this->bookInfo();
+		}
+		//声明方法，输出图书信息
+		public function bookInfo()
+		{
+			if($this->book_num==0)
+			{
+				echo $this->book_name."未收藏<br>";
+			}
+			else
+			{
+				echo "图书名：《".$this->book_name."》<br>";
+				echo "作者：".$this->book_author."<br>";
+				echo "价格:".$this->book_price."元<br>";
+				echo "朝代：".$this->dynasty."<br>";
+				echo "收藏量:".$this->book_num."本<br>";
+			}
+			echo "-----------------<br>";
+		}
+	}
+	class Journal_Book extends Book		//定义期刊子类
+	{
+		//声明子类的方法，输出期刊借阅说明
+		public function book_comment()
+		{
+			if($this->book_price>=50)
+			{
+				echo "特殊期刊，仅供馆内阅读，不外借<br>";
+			}
+			else
+			{
+				echo "普通期刊，欢迎借阅<br>";
+			}
+		}
+	}
+	//实例化一个普通图书对象
+	$mybook=new Book('平凡的世界','路遥',54,12);
+	//实例化一个古籍图书对象
+	$mybook2=new Ancient_Book('宋刻资治通鉴','司马光',300000,1,'宋代');
+	//实例化一个期刊对象
+	$mybook3=new Journal_Book('计算机软件导刊','湖北工业大学',20,5);
+	$mybook3->book_comment();	//调用自己的方法
+?>

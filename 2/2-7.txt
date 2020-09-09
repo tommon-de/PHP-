@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例2-7</title>
+</head>
+
+<body>
+<?php
+	function fun1()//定义函数fun1
+	{	
+		static $A=0;	//静态变量声明
+		$A=$A+1;	//$A在原值基础上+1
+		return $A;	//返回A的值		
+	}
+	echo "第一次调用函数，A=".fun1()."<br>";
+	echo "第二次调用函数，A=".fun1()."<br>";
+	echo "第三次调用函数，A=".fun1();
+?>
+</body>
+</html>

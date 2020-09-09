@@ -1,0 +1,19 @@
+﻿<title>例8-3访问量统计</title>
+<?php 
+class Guest{			//定义访客类
+	static $num=0;
+	public function showMe(){
+		echo "你是第".self::$num."位访客";	
+		self::$num++;
+	}
+}
+$guest1=new Guest;	//初始化对象
+$guest1->showMe();	//调用方法
+echo "<br>";
+$guest1->showMe();	//调用同一对象的同一方法
+echo "<br>";
+$guest2=new Guest;	//创建新对象
+$guest2->showMe();
+echo "<br>";
+echo "您是第".Guest::	$num."位访客";	//直接通过类名访问静态变量
+?>

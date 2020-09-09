@@ -1,0 +1,21 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-15</title>
+</head>
+
+<body>
+<?php
+    $str="HuiZhou City College";
+    $B=array("o","e","u");
+    $C=array("A"); 
+    echo str_replace($B,$C,$str); 
+	echo "<br>";
+	$D=array("A","B"); 
+	echo str_replace($B,$D,$str);
+	echo "<br>";
+	$E=array("k","e","u");
+	echo str_replace($E,$D,$str);
+?>
+</body>
+</html>

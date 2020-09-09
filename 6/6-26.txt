@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-26 MD5加密</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  密码：
+  <input type="text" name="pw" id="pw" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+    if(isset($_POST['button']))
+    {   
+		$MM=$_POST['pw'];   //获取原始密码
+        $md5_MM=md5($MM);         //加密后的密码
+        echo "原始密码是：".$MM."<br>";
+        echo "加密密码是：".$md5_MM;
+    }
+?>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-19</title>
+</head>
+
+<body>
+<?php
+    echo chr(65)."<br>"; //输出A
+    echo chr(065)."<br>"; //输出5
+    echo chr(0x65); //输出e
+?>
+</body>
+</html>

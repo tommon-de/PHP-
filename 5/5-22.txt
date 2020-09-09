@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例5-22</title>
+</head>
+
+<body>
+<?php
+	function my_fun1()
+	{	
+		$A=1;$B=2;
+		$C=$A+$B;		
+		echo $C."<br>";}
+	function my_fun2()
+	{	
+		my_fun1();
+		echo "my_fun2()调用结束";
+	}
+	my_fun2();	//调用函数my_fun2()
+?>
+</body>
+</html>

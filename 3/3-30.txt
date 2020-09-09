@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例3-29</title>
+</head>
+
+<body>
+<?php
+	$sj_cost=102;	//$sj_cost为实际消费额
+	$zh_cost=$sj_cost>100?$sj_cost-10:$sj_cost;	//$zh_cost为折后金额
+	echo "实际消费".$sj_cost."元，请缴费".$zh_cost."元";
+?>
+</body>
+</html>

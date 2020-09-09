@@ -1,0 +1,16 @@
+<?php
+	header("content-type:image/jpeg");
+	$cnv=imagecreatetruecolor(500,120);
+	$color=imagecolorallocate($cnv,0,200,10);
+	$c=imagecolorallocate($cnv,250,0,0);
+	//描绘单弧
+	imagearc($cnv,50,60,80,80,0,90,$color);
+	//填充弧形
+	imagefilledarc($cnv,150,60,80,80,0,290,$color,IMG_ARC_PIE);
+	imagefilledarc($cnv,250,60,80,80,0,90,$color,IMG_ARC_CHORD);
+	imagefilledarc($cnv,350,60,80,80,0,270,$color,IMG_ARC_NOFILL);
+	imagefilledarc($cnv,450,60,80,80,0,290,$color,IMG_ARC_EDGED);
+	//输出然后销毁图像
+	imagejpeg($cnv);
+	imagedestroy($cnv);
+?>

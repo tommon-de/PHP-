@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-4</title>
+</head>
+
+<body>
+<?php
+	$days=29;	 
+	switch($days)
+	{	case 28:
+			echo "平年，二月平";
+			break;
+		case 29:
+			echo "闰年，二月平";
+			break;
+		case 30:
+			echo "小月";
+			break;
+		case 31:
+			echo "大月";
+			break;
+		default:
+			echo "非法天数";
+	}
+?>
+</body>
+</html>

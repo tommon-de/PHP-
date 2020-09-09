@@ -1,0 +1,22 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-22 关闭文件</title>
+</head>
+<body>
+<?php
+    $c_dir="E:\\myphp";
+    chdir($c_dir);  //改变当前文件夹
+    $c1_file=fopen("11.txt","r");    //只读方式打开11.txt
+	$c2_file=fopen("12.txt","r");	//不存在12.txt
+    if(fclose($c1_file))
+        echo "关闭文件11.txt成功<br>"; 
+    else
+        echo "关闭文件11.txt失败<br>";
+	if(fclose($c2_file)) 
+        echo "关闭文件12.txt成功<br>"; 
+    else
+        echo "关闭文件12.txt失败<br>";
+?>
+</body>
+</html>

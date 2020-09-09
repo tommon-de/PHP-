@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-23</title>
+</head>
+
+<body>
+<?php
+    $A="hello!My name is Jack."; 
+    $B="hello!my name is Jack."; 
+    echo strncmp($A,$B,6)."<br>"; //输出0
+    echo strncmp($A,$B,8);        //输出-1
+?>
+</body>
+</html>

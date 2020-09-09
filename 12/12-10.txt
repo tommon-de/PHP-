@@ -1,0 +1,11 @@
+<?php
+	$canvas=imagecreatefromjpeg("bgpic.jpg");
+	$pen_color=imagecolorallocate($canvas,250,0,0);//画笔颜色
+	//描绘内容
+	imagefilledellipse($canvas,100,100,80,80,$pen_color);
+	imagestring($canvas,5,120,40,"This is a cirle",$pen_color);
+	//输出图像
+	header("content-type:image/jpeg");
+	imagejpeg($canvas);
+	imagedestroy($canvas);//销毁图像
+?>

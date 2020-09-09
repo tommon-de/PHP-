@@ -1,0 +1,17 @@
+﻿<title>例8-4静态成员方法</title>
+<?php 
+class Human{
+ static $name="伟明";
+ public $height=180;
+ static function tell(){	//静态方法
+	 echo "我的名字是".self::$name."<br>";		//调用静态成员
+	 }
+ public function say(){		//普通方法
+	  echo "我叫".self::$name;		//调用静态成员
+	  echo "我的身高是".$this->height."<br>";	//调用普通成员
+	  }	
+}
+$p1=new Human();
+$p1->say(); 
+$p1->tell();	//调用静态方法
+?>

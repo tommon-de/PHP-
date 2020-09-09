@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第5章练习2-5合数</title>
+</head>
+
+<body>
+<?php
+	function zhishu($n)
+	{
+		$is_prime=1;
+		for($i=1;$i<=sqrt($n);$i++)
+		{
+			if($n%$i==0&&$i>1)
+			{
+				$is_prime=0;
+				break;
+			}
+		}
+		return $is_prime;
+	}
+	for($i=1;$i<=100;$i++)
+	{
+		if(!zhishu($i))
+			echo $i."、";
+	}
+?>
+</body>
+</html>

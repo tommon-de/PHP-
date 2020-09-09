@@ -1,0 +1,30 @@
+﻿<?php
+    session_start();//开启会话状态
+    if(isset($_GET['oid'])&&$_GET['oid']==0)
+    {
+        session_destroy();  //销毁会话对象
+        header("location:10-2.php");
+    }
+    if(isset($_SESSION['UNAME'])&&$_SESSION['UNAME']!='')
+    {
+        echo "欢迎您".$_SESSION['UNAME'];
+        echo "&nbsp;&nbsp;";
+        echo "<a href='10-2.php?oid=0'>退出登陆</a>";
+    }
+    else
+    {
+        echo "你尚未登陆，请先登陆<br>";
+echo <<<AA
+    <form action="" method="post" name="form1" id="form1">
+          用户名:<label for="uname"></label>
+          <input type="text" name="uname" id="uname" />
+          <input type="submit" name="submit" value="提交"  >
+    </form>
+AA;
+    }
+        if(isset($_POST['submit']))
+        {
+            $_SESSION['UNAME']=$_POST['uname']; //存储用户名
+            header("location:10-2.php");    //跳转刷新
+        }
+?>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-32 fwrite()</title>
+</head>
+<body>
+<?php
+    $f_path="E:\\myphp\\11-24.txt";
+    $str="\r\n江雪\r\n千山鸟飞绝，\r\n万径人踪灭。\r\n孤舟蓑笠翁，\r\n独钓寒江雪。";
+    $f_name=fopen($f_path,"a+");    //以追加写的模式打开文件
+    $f_str=fwrite($f_name,$str);     //写入文件
+    if($f_str!=false)
+        {echo "文件写入成功";}
+    fclose($f_name);
+?>
+</body>
+</html>

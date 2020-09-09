@@ -1,0 +1,83 @@
+<?php
+if(isset($_POST['button'])){
+	function check_type($_FILES)	//图片类型检查
+	{
+		if($_FILES['pic']['type']=='image/pjpeg'||$_FILES['pic']['type']=='image/jpeg')
+			return 1;
+		elseif($_FILES['pic']['type']=='image/gif')
+			return 2;
+		elseif($_FILES['pic']['type']=='image/png'||$_FILES['pic']['type']=='image/x-png')
+			return 3;
+		else
+			return 0;
+	}
+	//表单检查
+	function check_empty($_FILES){
+	if(empty($_FILES))
+		return 0;
+	else
+		return 1;
+	}
+	if(0==check_empty($_FILES))
+	{
+		header("Content-type:text/html;charset=utf-8");
+		echo "<script>alert('请选择要上传的文件');
+		window.location.href='27-5-2.php';</script>";
+	}
+	$type=check_type($_FILES);
+	//上传图片
+	$pic_name=$_FILES['pic']['name'];
+	if($type!=0)
+		move_uploaded_file($_FILES['pic']['tmp_name'],$pic_name);
+	else
+	{
+		header("Content-type:text/html;charset=utf-8");
+		echo "<script>alert('图片类型错误，请重新上传');
+		window.location.href='27-5-2.php';</script>";
+	}
+	switch ($type)
+	{
+		case 1:
+			$image = imagecreatefromjpeg($pic_name);
+			break;
+		case 2:
+			$image = imagecreatefromgif($pic_name);
+			break;
+		case 3:
+			$image = imagecreatefrompng($pic_name);
+	}
+	//普通文字水印
+	$txt="普通文字水印效果";
+	$info=getimagesize($pic_name);
+	$red=imagecolorallocate($image,200,0,12);
+	imagettftext($image,15,0,$info[0]-200,$info[1]-30,$red,'simhei.ttf',$txt);
+	//透明文字水印
+	$txt_2="透明文字水印效果";
+	$bg_mark=imagecreatetruecolor(200,30);	//文字画布
+	$bg_color=imagecolorallocate($bg_mark,0,0,0);//黑色背景
+		//背景透明化
+	$bg_transparent=imagecolortransparent($bg_mark,$bg_color);
+	imagefill($bg_mark,0,0,$bg_transparent);
+		//输出文字并调整透明度
+	$alpha=30;	//30%透明
+	imagettftext($bg_mark,15,0,0,20,$red,'simhei.ttf',$txt_2);
+	imagecopymerge($image,$bg_mark,$info[0]-200,$info[1]-80,0,0,200,30,$alpha);
+	//输出图像
+	header("content-type:image/png");
+	imagepng($image);
+	imagedestroy($image);
+	imagedestroy($bg_mark);
+}
+echo header("Content-type:text/html;charset=utf-8");
+echo
+<<<form
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>请选择要上传的图片：
+    <label for="pic"></label>
+    <input type="file" name="pic" id="pic">
+<br />
+<input type="submit" name="button" id="button" value="上传图片" />
+  </p>
+</form>
+form;
+?>

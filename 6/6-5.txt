@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例6-5</title>
+</head>
+
+<body>
+<pre> <!--显示空格-->
+<?php
+    $A="我是中国人";
+    echo "变量A的长度是".strlen($A)."<br>";
+    printf("%10s<br>",$A);
+    printf("%14s<br>",$A);  //用空格补位
+    printf("%'*14s<br>",$A);//用*补位
+    printf("%'*14.8s<br>",$A);//输出14位，字符串本身占8位
+?>
+</pre>
+</body>
+</html>

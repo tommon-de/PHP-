@@ -1,0 +1,30 @@
+﻿<title>例13-6</title>
+<?php
+	$db_server="localhost";	//mysql服务器地址
+	$db_user="root";	//mysql用户名
+	$db_pw="root";		//登录密码
+	$db_name="guestbook";	//数据库名
+	@$conn=mysql_connect($db_server,$db_user,$db_pw)or die("数据库服务器无法连接");
+	$db_selected=mysql_select_db($db_name);
+	$sqls="select * from class";	//查询语句
+	$res=mysql_query($sqls,$conn);
+	$r_count=mysql_num_rows($res); //统计查询结果的记录数
+	if($r_count!=0)
+	{
+	echo "共搜到相关记录".$r_count."行如下：<br>";
+	echo "<table width=500 border=1 cellspacing=0>";
+	for($i=0;$i<$r_count;$i++)
+	{	
+		$rs_obj=mysql_fetch_object($res);		//转为对象
+		echo "<tr>";
+		echo "<td>".$rs_obj->id."</td>";	//第一个字段内容
+		echo "<td>".$rs_obj->c_id."</td>";	//第二个字段内容
+		echo "<td>".$rs_obj->c_name."</td>";	//第三个字段内容
+		echo "<td>".$rs_obj->c_teacher."</td>";	//第四个字段内容
+		echo "<td>".$rs_obj->c_enable."</td>";	//第五个字段内容
+		echo "</tr>";
+	}
+	echo "</table>";
+	}
+	mysql_close($conn);	//关闭数据连接
+?>

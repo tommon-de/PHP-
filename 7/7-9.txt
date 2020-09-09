@@ -1,0 +1,15 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-9</title>
+</head>
+
+<body>
+<?php
+    $A=array(4,2,5,1,0,1);
+	$B=array("a"=>12,"b"=>25,"c"=>33,"d"=>20);
+   	echo '数组A共有'.count($A).'个元素<br>';
+	echo '数组B共有'.sizeof($B).'个元素';
+?>
+</body>
+</html>

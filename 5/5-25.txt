@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例5-25</title>
+</head>
+
+<body>
+<?php
+	function f($A)
+	{	
+		if($A==1)
+			return $A;
+		else
+			return $A*f($A-1); //递归调用
+	}	
+	echo f(5);		
+?>
+</body>
+</html>

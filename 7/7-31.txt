@@ -1,0 +1,54 @@
+﻿<?php
+    //初始化书篮数据
+    $b_name="平凡的世界@活着@时间简史@高等数学@PHP程序设计@计算机组成原理";
+    $price="30.00@25.00@18.50@20.00@54.00@30.00";
+    $counts="1@1@2@2@3@2";
+    $arr_name=explode("@",$b_name); //把书名转为数组
+    $arr_price=explode("@",$price);         //价格转为数组
+    $arr_count=explode("@",$counts);        //数量转为数组
+    if(isset($_POST['button']))
+    {
+        $id=$_POST['bname'];            //获取要修改数量的书名
+        $num=$_POST['bcounts']; //获取购买的数量
+        $key=array_search($id,$arr_name);   //在数组中查询要修改的书名，获取其键名
+        $arr_count[$key]=$num;      //修改数量数组中对应的图书数量
+        $counts=implode("@",$arr_count);        //更新数量字符串
+    }
+?>
+<style type="text/css">
+#s_car {
+    background-color: #CCC;
+    font-size: 12px;
+    color: #600;
+    text-decoration: none;
+}
+</style>
+<table width="664" height="93" border="0" align="center" cellpadding="0" cellspacing="1" id="s_car">
+  <tr>
+    <td colspan="4" align="center" bgcolor="#999966" height="25">我的书篮</td>
+  </tr>
+  <tr>
+    <td width="295" align="center" bgcolor="#FFFFFF" height="25">图书名称</td>
+    <td width="91" align="center" bgcolor="#FFFFFF">单价</td>
+    <td width="140" align="center" bgcolor="#FFFFFF">购买数量</td>
+    <td width="133" align="center" bgcolor="#FFFFFF">金额</td>
+  </tr>
+ <?php
+    for($i=0;$i<count($arr_name);$i++){ //输出购物车商品列表
+    if($arr_count[$i]>0){
+?>
+  <tr>
+    <td height="25" align="center" bgcolor="#FFFFFF"><?php echo $arr_name[$i];?></td>
+    <td align="center" bgcolor="#FFFFFF"><?php echo $arr_price[$i];?></td>
+    <td align="center" valign="middle" bgcolor="#FFFFFF">
+    <form name="form1_<?php echo $i;?>" method="post" action="15-4-1.php">
+      <input name="bname" type="hidden" id="bname" value="<?php echo $arr_name[$i];?>">
+      <input name="bcounts" type="text" id="bcounts" value="<?php  echo $arr_count[$i]; ?>" size="6">
+      <input type="submit" name="button" id="button" value="修改">
+    </form></td>
+    <td align="center" bgcolor="#FFFFFF"><?php echo $arr_count[$i]*$arr_price[$i];?></td>
+  </tr>
+  <?php
+    }}
+    ?>
+</table>

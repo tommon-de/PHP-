@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-22</title>
+</head>
+
+<body>
+<?php
+    echo strcasecmp("good","Good")."<br>"; //输出0
+    echo strcmp("good","Good")."<br>"; //输出1
+?>
+</body>
+</html>

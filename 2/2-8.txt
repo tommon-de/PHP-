@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例2-8</title>
+</head>
+
+<body>
+<?php
+		$A=1;	 
+		function addition()
+		{	
+			$B=3;
+			echo "函数内的变量B=".$B."<br>";			
+		}
+		addition();
+		echo "输出变量A=".$A."<br>";
+		if (isset($B)==true)
+			echo "输出变量=".$B; 
+		else
+			echo "变量B不存在或不在作用域内";
+	?>
+</body>
+</html>

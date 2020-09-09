@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-6</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  请输入你的成绩：
+  <input name="score" type="text" id="score" size="8" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+if(isset($_POST['button']))
+{
+	$cj=$_POST['score'];
+	echo "成绩：".$cj."<br>";	 
+	switch($cj)
+	{	case $cj<60:
+			echo "成绩不合格。";
+		case $cj>=60&&$cj<70:
+			echo "成绩合格。";
+		case $cj>=70&&$cj<80:
+			echo "成绩中等。";
+		case $cj>=80&&$cj<90:
+			echo "成绩良好。";
+		case $cj>=90&&$cj<=100:
+			echo "成绩合格。";
+		default:
+			echo "分数异常。";
+	}}
+?>
+</body>
+</html>

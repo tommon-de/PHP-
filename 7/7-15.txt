@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-15</title>
+</head>
+
+<body>
+<?php
+    $arr=array(1,2,3,4,5,6);
+    $i=0;
+    while($i<sizeof($arr))  //或者换为$k=count($arr)
+        {
+            echo "当前数组元素的键名是".key($arr);
+            echo "，值是".$arr[$i]."<br>";
+            $i++;
+            next($arr);//将数组指针向前移
+        }
+?>
+</body>
+</html>

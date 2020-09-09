@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-33 file_put_contents()</title>
+</head>
+<body>
+<?php
+    $f_path="E:\\myphp\\11-33.txt";  
+	echo "文件原有内容：<br>";
+	echo file_get_contents($f_path);	//输出原有内容
+    $str="春晓\r\n春眠不觉晓\r\n处处闻啼鸟\r\n";
+    $w=file_put_contents($f_path,$str); //以独占锁定模式打开写入
+    if($w!==false)
+        {echo "<br>文件写入成功，写入后的内容：<br>";}
+    readfile($f_path);
+    $str="夜来风雨声，\r\n花落知多少\r\n";
+    $w=file_put_contents($f_path,$str,FILE_APPEND); //以追加模式写入
+    if($w!==false)
+        {echo "<br>文件追加成功，追加后的内容：<br>";}
+    readfile($f_path);
+?>
+</body>
+</html>

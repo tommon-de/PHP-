@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例2-3</title>
+</head>
+
+<body>
+<?php 
+		$A=12;	//直接赋值
+		$B=&$A;	//引用赋值
+		echo "A=".$A."<br>";
+		echo "B=".$B."<br>";
+		$A=25;	//改变A的值
+		echo "Ａ的值变为25以后，B=".$B."<br>";
+		$B=20;	//改变B的值
+		echo "Ｂ的值变为20以后，A=".$A;
+?>
+</body>
+</html>

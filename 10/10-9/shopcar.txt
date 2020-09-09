@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的书篮子</title>
+<style type="text/css">
+#s_car {	background-color: #CCC;
+	font-size: 12px;
+	color: #600;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+<?php
+	//读取书篮cookie数据
+	$b_name=$_COOKIE['book'];
+	$b_price=$_COOKIE['price'];
+	$b_num=$_COOKIE['num'];
+	$arr_name=explode("@",$b_name);	//把书名转为数组
+	$arr_price=explode("@",$b_price);			//价格转为数组
+	$arr_num=explode("@",$b_num);		//数量转为数组
+	
+	if(isset($_POST['add']))	//增加数量
+	{
+		$id=$_POST['bname'];			//获取要修改数量的书名
+		$num=$_POST['bcounts'];	//获取购买的数量
+		$key=array_search($id,$arr_name);	//在数组中查询要修改的书名，获取其键名
+		$arr_num[$key]=$num+1;		//修改数量数组中对应的图书数量+1
+		//更新数量字符串
+		$counts=implode("@",$arr_num);		
+		setcookie('num',$counts,time()+15*24*3600);
+	}
+	if(isset($_POST['des']))	//减少数量
+	{
+		$id=$_POST['bname'];			//获取要修改数量的书名
+		$num=$_POST['bcounts'];	//获取购买的数量
+		$key=array_search($id,$arr_name);	//在数组中查询要修改的书名，获取其键名
+		$arr_num[$key]=$num-1<0?0:$num-1;		//修改数量数组中对应的图书数量+1
+		//更新数量字符串
+		$counts=implode("@",$arr_num);		
+		setcookie('num',$counts,time()+15*24*3600);
+	}
+?>
+<table width="664" height="132" border="0" align="center" cellpadding="0" cellspacing="1" id="s_car">
+  <tr>
+    <td colspan="4" align="center" bgcolor="#FF9900" height="30">我的书篮</td>
+  </tr>
+  <tr>
+    <td width="295" align="center" bgcolor="#FFFFFF" height="34">图书名称</td>
+    <td width="91" align="center" bgcolor="#FFFFFF">单价</td>
+    <td width="140" align="center" bgcolor="#FFFFFF">购买数量</td>
+    <td width="133" align="center" bgcolor="#FFFFFF">金额</td>
+  </tr>
+  <?php
+  	$total=0;	//总计
+  	for($i=0;$i<count($arr_name);$i++){	//输出购物车商品列表
+	if($arr_num[$i]>0){
+		$total=$total+$arr_num[$i]*$arr_price[$i];
+?>
+  <tr>
+    <td height="34" align="center" bgcolor="#FFFFFF"><?php echo $arr_name[$i];?></td>
+    <td align="center" bgcolor="#FFFFFF"><?php echo $arr_price[$i];?></td>
+    <td align="center" valign="middle" bgcolor="#FFFFFF"><form action="shopcar.php" method="post" name="form1_<?php echo $i;?>" id="form1_<?php echo $i;?>">
+      <input name="bname" type="hidden" id="bname" value="<?php echo $arr_name[$i];?>" />
+      <input type="submit" name="des" id="des" value="-" />
+<input name="bcounts" type="text" id="bcounts" value="<?php  echo $arr_num[$i]; ?>" size="6" />
+      <input type="submit" name="add" id="add" value="+" />
+    </form></td>
+    <td align="center" bgcolor="#FFFFFF"><?php echo $arr_num[$i]*$arr_price[$i];?></td>
+  </tr>
+    <?php
+	}}
+	?>
+  <tr>
+    <td height="29" colspan="4" align="center" bgcolor="#FFFFFF">全计：<?php echo $total;?>元</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-10</title>
+</head>
+
+<body>
+<?php
+    $A=array(1,2,3);
+    print_r($A);
+    echo "<br>";
+    unset($A);  //释放数组
+    print_r($A);	//此句将出错
+?>
+</body>
+</html>

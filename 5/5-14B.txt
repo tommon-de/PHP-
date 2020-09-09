@@ -1,0 +1,4 @@
+<?php
+	echo "<hr>";
+	echo "当前文件名5-14B.php<br>";
+?>

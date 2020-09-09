@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登陆</title>
+</head>
+
+<body>
+<?php
+	session_start();
+	if(isset($_POST['button']))
+	{
+		$_SESSION['uname']=$_POST['uname'];
+		echo "<script language='javascript'>";
+		echo "alert('登陆成功，欢迎光临本商城');";
+		echo "window.location.href='index.php';";
+		echo "</script>";
+	}
+?>
+<form id="form1" name="form1" method="post" action="">
+  <table width="394" height="128" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+    <tr>
+      <td colspan="2" align="center" bgcolor="#FF9900">书城登陆</td>
+    </tr>
+    <tr>
+      <td width="74" align="center" bgcolor="#FFFFFF">账号：</td>
+      <td width="249" bgcolor="#FFFFFF"><label for="uname"></label>
+      <input type="text" name="uname" id="uname" /></td>
+    </tr>
+    <tr>
+      <td align="center" bgcolor="#FFFFFF">密码：</td>
+      <td bgcolor="#FFFFFF"><label for="upass"></label>
+      <input type="password" name="upass" id="upass" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center" bgcolor="#FF9900"><input type="submit" name="button" id="button" value="提交登陆" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

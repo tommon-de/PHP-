@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例9-13 文件上传</title>
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  请选择您要上传的文件：
+  <label for="myfile"></label>
+  <input type="file" name="myfile" id="myfile" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+    if(!empty($_FILES))
+    {
+        echo "您所上传的文件：".$_FILES['myfile']['name']."<br>";
+        echo "文件大小：".$_FILES['myfile']['size']."<br>";
+        echo "文件类型：".$_FILES['myfile']['type']."<br>";
+        echo "临时文件名：".$_FILES['myfile']['tmp_name']."<br>";
+        echo "上传错误号：".$_FILES['myfile']['error'];
+    }
+?>
+</body>
+</html>

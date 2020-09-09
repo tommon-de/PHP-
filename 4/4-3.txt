@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-3</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  请输入你的成绩：
+  <input name="score" type="text" id="score" size="8" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+	if(isset($_POST['button']))
+	{
+		echo "你所成绩是".$_POST['score']."分<br>";
+		if($_POST['score']>=60&&$_POST['score']<=69)
+			 echo '成绩合格'; 
+		elseif($_POST['score']>=70&&$_POST['score']<=79)
+			 echo '成绩中等'; 
+		elseif($_POST['score']>=80&&$_POST['score']<=89)
+			 echo '成绩良好'; 
+		elseif($_POST['score']>=90&&$_POST['score']<=100)
+			 echo '成绩优秀'; 
+		else
+			 echo'成绩不合格'; 
+	}
+?>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-5scandir()</title>
+</head>
+<body>
+<?php
+    $path='E:\website';
+    if(is_dir($path))
+        {   echo $path ."目录列表:<br>";
+            $f_list=scandir($path,1);   //扫描目录，降序排列
+            foreach($f_list as $f)      //遍历输出条目
+                echo $f."<br>"; 
+         }
+    else
+        echo "路径非法";
+?>
+</body>
+</html>

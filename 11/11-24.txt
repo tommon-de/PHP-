@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-24 fgetc()</title>
+</head>
+<body>
+<?php
+    $c_dir="E:\\myphp";
+    chdir($c_dir);          //改变当前文件夹
+    $c_file1=fopen("11-24.txt","r");     //只读打开文件  
+    while(($c=fgetc($c_file1))!=false)  //读取并输出字符
+    {
+		$c=nl2br($c);//处理换行符
+		echo $c;
+	}
+    fclose($c_file1);   //关闭文件
+?>
+</body>
+</html>

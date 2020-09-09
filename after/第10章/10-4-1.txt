@@ -1,0 +1,53 @@
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>验证码</title>
+</head>
+
+<body>
+<?php
+	session_start();
+	if(isset($_POST['button']))
+	{
+		$ucode=$_POST['code'];
+		if(!isset($_SESSION['code']))	//验证码是否过期
+			echo "<script>alert('验证码已失效');</script>";
+		else
+		{
+			if($ucode!=$_SESSION['code'])
+				echo "<script>alert('验证码错误');</script>";
+			else
+			{
+				echo "<script>alert('验证通过');</script>";
+				exit;
+			}
+		}
+	}
+?>
+<form id="form1" name="form1" method="post" action="">
+  <table width="385" height="69" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="256">验码码：
+      <input type="text" name="code" id="code" /></td>
+      <td width="144">
+	  <?php
+	  	$str="ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+		$code='';
+		for($i=0;$i<4;$i++)
+		{
+			$k=rand(0,34);//随机产生下标
+			$code.=$str[$k];
+		}
+		setcookie(session_name(),session_id(),time()+30);
+		$_SESSION['code']=$code;
+		echo $code;
+	  ?>
+      </td>
+    </tr>
+    <tr>
+      <td height="35" colspan="2" align="center"><input type="submit" name="button" id="button" value="提交" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$pix_color=imagecolorallocate($img,255,200,220);	//点的颜色
+	for($i=0;$i<200;$i++){
+		$x=rand(0,400);
+		$y=rand(0,100);
+		imagesetpixel($img,$x,$y,$pix_color);
+	}
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例9-1获取文本框数据</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    账号：<input type="text" name="u_id" id="u_id" /><br />
+    密码：<input type="password" name="u_pass" id="u_pass" /><br />
+  	描述：<textarea name="u_about" id="u_about" cols="45" rows="5"></textarea><br />
+    <input type="submit" id="button" name="send" value="提交" />
+</form>
+<?php
+	if(isset($_POST['send']))	//判断提交按钮是否点击
+	{
+		$uname=$_POST['u_id'];//获取账号
+		$upass=$_POST['u_pass'];//获取密码
+		$udes=$_POST['u_about'];//获取描述
+		//输出数据
+		echo "你的账号：".$uname."<br>";
+		echo "你的密码：".$upass."<br>";
+		echo "你的描述：".$udes;
+	}
+?>
+</body>
+</html>

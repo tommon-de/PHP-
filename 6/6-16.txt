@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-16</title>
+</head>
+
+<body>
+<?php
+    $A="Hello!my name is Rose.";
+    $A1=substr_replace($A,"",6,3); //从第6个字符开始，替换3个字符为空
+    $A2=substr_replace($A,"My",6,2);//从第6个字符开始，替换2个字符为“My"
+    $A3=substr_replace($A,"Rose:",0,0);//在最左边插入“Rose:”
+    $A4=substr_replace($A,"Nice to meet you!",strlen($A),0);//在最右边插入字符
+    echo $A."<br>";
+    echo $A1."<br>"; 
+    echo $A2."<br>"; 
+    echo $A3."<br>"; 
+    echo $A4."<br>"; 
+?>
+</body>
+</html>

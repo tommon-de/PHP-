@@ -1,0 +1,14 @@
+<?php
+	header("content-type:image/jpeg");
+	$dst_img=imagecreatefromjpeg("bgpic.jpg");//目标图像
+	$src_img=imagecreatefromgif("logo.gif");//源图像
+	$img_info=getimagesize("logo.gif");//获取源图像的尺寸
+	//透明度
+	$alpha_1=30;
+	$alpha_2=100;
+	imagecopymerge($dst_img,$src_img,30,20,0,0,$img_info[0],$img_info[1],$alpha_1);
+	imagecopymerge($dst_img,$src_img,230,20,0,0,$img_info[0],$img_info[1],$alpha_2);
+	imagejpeg($dst_img);//输出合并后的图像
+	imagedestroy($dst_img);//销毁目标图像
+	imagedestroy($src_img);//销毁源图像
+?>

@@ -1,0 +1,12 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$ellipse_1=imagecolorallocate($img,230,230,0);//椭圆1的颜色
+	$ellipse_2=imagecolorallocate($img,0,250,250);//椭圆2的颜色
+	imageellipse($img,100,50,120,50,$ellipse_1);	//椭圆1
+	imagefilledellipse($img,250,50,70,70,$ellipse_2);//正圆2
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第4章习题3-4</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  请输入一个三位整位：
+  <input type="text" name="digi" id="digi" />
+  <input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+	if(isset($_POST['button']))
+	{
+		$s=$_POST['digi'];
+		$w=0;
+		do
+		{ 
+			$k=$s%10;
+			$s=intval($s/10);
+			$w=$w*10+$k;
+		}
+		while($s!=0);
+		echo $_POST['digi']."倒序以后是".$w;
+	}
+?>
+</body>
+</html>

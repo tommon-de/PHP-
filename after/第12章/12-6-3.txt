@@ -1,0 +1,19 @@
+<?php  
+    header("Content-type:image/jpeg");//定义返回数据类型  
+    $img=imagecreatetruecolor(300,200);//创键统计图画布  
+	$bg_color=imagecolorallocate($img,0,0,0);//背景颜色
+	imagefill($img,0,0,$bg_color);//填充背景
+    $mycolor_1=imagecolorallocate($img,255,0,0);//定义一个颜色(红色)  
+    $mycolor_2=imagecolorallocate($img,232,222,13);//定义一个颜色（黄色）
+    $mycolor_3=imagecolorallocate($img,0,222,222);//定义一个颜色（蓝色）
+	$mycolor_4=imagecolorallocate($img,0,255,22);//定义一个颜色（绿色）
+
+    //画统计图
+	imagefilledrectangle($img,30,40,80,180,$mycolor_1);
+	imagefilledrectangle($img,100,20,150,180,$mycolor_2);
+	imagefilledrectangle($img,170,130,220,180,$mycolor_4);
+	imagefilledrectangle($img,240,70,290,180,$mycolor_3);
+	//输出图像
+    imagejpeg($img);//输出并保存图像  
+    imagedestroy($img);//销毁服务器资源  
+?>

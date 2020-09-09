@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-7</title>
+</head>
+
+<body>
+<?php
+		$he=0;	 $i=1;
+		while($i<=100)
+			{
+				$he=$he+$i;
+				$i++;
+			}
+		echo ‘100以内所有自然数之和是’.$he;
+?>
+</body>
+</html>

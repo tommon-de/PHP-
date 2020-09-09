@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-28</title>
+<style type="text/css">
+body {
+	margin-top: 0px;
+}
+</style>
+</head>
+
+<body>
+<?php
+    $st_1=array("xh"=>"F3601","xm"=>"张明","cj"=>"78");
+    $st_2=array("xh"=>"F3312","xm"=>"李英","cj"=>"85");
+    $st_3=array("xh"=>"F3503","xm"=>"王强","cj"=>"83");
+    $st_4=array("xh"=>"F3404","xm"=>"赵红","cj"=>"75");
+    $st_5=array("xh"=>"F3604","xm"=>"赵红","cj"=>"75");
+	$student=array("xs1"=>$st_1,"xs2"=>$st_2,"xs3"=>$st_3,"xs4"=>$st_4,"xs5"=>$st_5);
+    //根据学号生成子数组与成绩子数组
+    foreach($student as $key=>$val)
+	{
+		$s_id[$key]=$val["xh"]; 
+		$s_cj[$key]=$val["cj"];
+	}
+    //根据成绩降序排列，若成绩相同，根据学号升序排序
+	array_multisort($s_cj,SORT_DESC,SORT_NUMERIC,$s_id,SORT_ASC,SORT_STRING,$student);  
+    //输出排序后的数组$student的内容
+    foreach($student as $key=>$val)
+		echo $val['xh'].','.$val['xm'].','.$val['cj'].'<br>'; 
+?>
+</body>
+</html>

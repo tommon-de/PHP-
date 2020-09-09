@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-22 fgetc()</title>
+</head>
+<body>
+<?php
+    $c_dir="E:\\myphp";
+    chdir($c_dir);  //改变当前文件夹
+    $c_file1=fopen("11.txt","r");   
+    $c_file2=fopen("12.txt","r");
+    $c_file3=fopen("13.txt","r"); 
+    $c1=fgetc($c_file1);    //获取11.txt中的一个字符
+    $c2=fgetc($c_file2);    //获取12.txt中的一个字符
+    $c3=fgetc($c_file3);    //获取19.txt中的一个字符
+    if($c1!=false)
+         echo $c1."<br>"; 
+    else
+         echo "11.txt已到达文件尾或读取错误<br>"; 
+    if($c2!=false)
+         echo $c2."<br>"; 
+    else
+         echo "12.txt已到达文件尾或读取错误<br>"; 
+    if($c3!=false)
+         echo $c3."<br>"; 
+    else
+         echo "13.txt已到达文件尾或读取错误"; 
+?>
+</body>
+</html>

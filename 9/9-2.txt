@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例9-2获取列表框数据</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    学历：
+      <label for="edu"></label>
+      <select name="edu" id="edu">
+        <option value="博士">博士研究生</option>
+        <option value="硕士">硕士研究生</option>
+        <option value="学士">本科</option>
+        <option value="大专">大专</option>
+      </select>
+    <br />
+    <input type="submit" id="button" name="send" value="提交" />
+</form>
+<?php
+	if(isset($_POST['send']))	//判断提交按钮是否点击
+	{
+		$edu=$_POST['edu'];//获取学历
+		//输出数据
+		echo "你的学历是：".$edu;
+	}
+?>
+</body>
+</html>

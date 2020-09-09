@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第5章练习2-2完数</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  N=
+<input name="N" type="text" id="N" size="4" />
+M=
+<input name="M" type="text" id="M" size="4" />
+<input type="submit" name="button" id="button" value="提交" />
+</form>
+<?php
+if(isset($_POST['button']))
+{
+	//完数判断函数
+	function is_pn($k)
+	{
+		$a=0;
+		$j=0;
+		for($i=1;$i<$k;$i++)
+		{
+			if ($k%$i==0)
+			{$j=$j+$i;}
+		}
+		$a=$j==$k?1:0;
+		return $a;
+	}
+	$n=$_POST['N'];
+	$m=$_POST['M'];
+	$e=1;
+		 for($i=$n;$i<=$m;$i++)
+		 {
+			 if (is_pn($i)==1)
+				{
+				   echo $i."&nbsp;";
+				   $e=$e+1;
+				}
+		 }
+		 if($e==1)
+		 	echo "NIL"; 
+}
+?>
+</body>
+</html>

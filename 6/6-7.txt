@@ -1,0 +1,8 @@
+<meta content="text/html; charset=utf-8" />
+<title>例6-7</title>
+<?php
+    $A="Hello";
+    $B="我是中国人";
+    echo "变量A的长度是".strlen($A)."<br>"; //输出5
+    echo "变量B的长度是".strlen($B);  //输出10
+?>

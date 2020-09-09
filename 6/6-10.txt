@@ -1,0 +1,23 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-10</title>
+</head>
+
+<body>
+<pre>
+<?php
+    $A=" 2016-05-12 ";
+    $A1=trim($A);
+    $A2=ltrim($A);
+    $A3=rtrim($A);
+    $A4=trim($A1,"2");
+    echo $A."<br>";
+    echo $A1."<br>"; 
+    echo $A2."<br>";
+    echo $A3."<br>";
+    echo $A4;
+?>
+</pre>
+</body>
+</html>

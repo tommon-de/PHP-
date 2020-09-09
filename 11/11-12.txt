@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-12 移动目录</title>
+</head>
+<body>
+<?php
+    $path1="E:\\myphp";
+    $path2="E:\\website";
+    $list1=scandir($path1);//读取第一个路径
+    echo "移动前的".$path1."内容列表<br>";
+    foreach($list1 as $k)
+        {echo $k."；";}
+    $list2=scandir($path2);//读取第二个路径
+    echo "<br>";
+    echo "移动前的".$path2."内容列表<br>";
+    foreach($list2 as $k)
+        {echo $k."；";}
+    rename($path1.'\images',$path2.'\newdir');  //移动文件夹
+    echo "<br>";
+    $list1=scandir($path1); //读取第一个路径
+    echo "移动后的".$path1."内容列表<br>";
+    foreach($list1 as $k)
+        {echo $k."；";}
+    echo "<br>";
+    $list2=scandir($path2); //读取第二个路径
+    echo "移动后的".$path2."内容列表<br>";
+    foreach($list2 as $k)
+        {echo $k."；";}
+?>
+</body>
+</html>

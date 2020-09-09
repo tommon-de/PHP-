@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-1</title>
+</head>
+
+<body>
+<?php
+		$A=12;		$B=5; $C=3;
+		if($A%$B==0)
+		{
+				$D=$A/$B;
+				echo "变量A是变量B的".$D."倍<br>";
+		}
+		if($A%$C==0)
+		{
+				$D=$A/$C;
+				echo "变量A是变量C的".$D."倍<br>";
+		}
+		echo '运算完毕';
+?>
+</body>
+</html>

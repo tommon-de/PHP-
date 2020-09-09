@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例9-3单选框与复选框</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    性别： <label>
+          <input type="radio" name="sex" value="男" id="sex_0" />
+          男</label>
+        <label>
+          <input type="radio" name="sex" value="女" id="sex_1" />
+          女</label>
+        <br />
+    兴趣：<label>
+        <input type="checkbox" name="inte[]" value="读书" id="inte_0" />
+        读书</label>
+      <label>
+        <input type="checkbox" name="inte[]" value="跑步" id="inte_1" />
+      跑步</label>
+      <label>
+        <input type="checkbox" name="inte[]" value="音乐" id="inte_2" />
+      音乐</label>
+      <label>
+        <input type="checkbox" name="inte[]" value="书法" id="inte_3" />
+      书法</label>
+    <br />
+    <input type="submit" id="button" name="send" value="提交" />
+</form>
+<?php
+	if(isset($_POST['send']))	//判断提交按钮是否点击
+	{
+		$sex=$_POST['sex'];//获取性别
+		$interest=$_POST['inte'];//获取兴趣爱好
+		//输出数据
+		echo "性别：".$sex."<br>";
+		echo "爱好：";
+		foreach($interest as $i)	//遍历输出爱好数组
+			echo $i."、";
+	}
+?>
+</body>
+</html>

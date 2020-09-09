@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-2</title>
+</head>
+
+<body>
+<?php 
+    $num = 2;
+    $str = "惠州";
+    printf("在%s有%u百万辆自行车。",$str,$num);
+?>
+</body>
+</html>

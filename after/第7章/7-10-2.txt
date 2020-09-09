@@ -1,0 +1,17 @@
+﻿
+<?php
+	//随机产生数组中的各元素值，并输出
+	$arr=array();
+	for($i=0;$i<=9;$i++)
+	{
+		$m=rand(1,100);
+		 $arr[$i]=$m;
+	}
+	//升序排列数组中的元素
+	asort($arr);
+	echo "<br>";
+	
+	//输出排序后的元素
+	foreach($arr as $val)
+		echo $val."、"; 
+?>

@@ -1,0 +1,47 @@
+﻿<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>确认密码</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="279" height="83" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="96" height="27">密码：</td>
+      <td width="183"><label for="pw"></label>
+      <input type="password" name="pw" id="pw" /></td>
+    </tr>
+    <tr>
+      <td height="27">确认密码：</td>
+      <td><label for="pw2"></label>
+      <input type="password" name="pw2" id="pw2" /></td>
+    </tr>
+    <tr>
+      <td height="29">&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="提交" /></td>
+    </tr>
+  </table>
+</form>
+<?php
+	if (!empty($_POST['button']))
+	{if(!empty($_POST['pw'])&&!empty($_POST['pw2'])) //两个密码框不能为空
+	{	$pw1=$_POST['pw'];
+		$pw2=$_POST['pw2'];
+		if(strcmp($pw1,$pw2)!=0) //比较两次密码是否一致
+		{
+			echo "<script language='javascript'>";
+			echo "alert('密码不一致，请重新输入');";
+			echo "</script>";
+		}
+		else
+			{echo "密码验证通过";}			
+	}
+	else
+		{
+			echo "密码不一致，验证不通过";
+		}}
+
+?>
+</body>
+</html>

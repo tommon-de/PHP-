@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例2-13预定义常量</title>
+</head>
+
+<body>
+<?php
+echo '当前php的版本:'.PHP_VERSION.'<br>';
+echo '当前操作系统类型:'.PHP_OS.'<br>';
+echo 'Apache与PHP之间的接口:'.PHP_SAPI.'<br>';
+echo '本句程序所在行数：'.__LINE__;
+?>
+</body>
+</html>

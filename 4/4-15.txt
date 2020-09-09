@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>例4-15</title>
+</head>
+
+<body>
+<?php
+	$i=1;
+	while($i<=20)
+	{
+		if($i%2==0&&$i%3==0)
+			{
+				echo '第一个2与3的公倍数是'.$i;
+				break;
+			}
+		$i++;
+	}
+?>
+</body>
+</html>

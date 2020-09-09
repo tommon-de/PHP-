@@ -1,0 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-1</title>
+</head>
+
+<body>
+<?php
+	$A=array("a"=>3,"b"=>5, "c"=>7, "d"=>9);
+?>
+</body>
+</html>

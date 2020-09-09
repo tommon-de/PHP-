@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,
+maximum-scale=1.0 user-scalable=no">
+<title>例9-6 bl2br</title>
+</head>
+
+<body>
+<?php
+$str="when I was young \n I'd listen to the radio";
+echo $str;
+echo "<br>";
+echo nl2br($str);
+?>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<title>例8-14多继承</title>
+<?php  
+interface StudentInterface		//定义学生类接口 
+{  
+	function Study();		//学习方法
+}  
+interface StaffInterface	//定义职员接口
+{   
+	function Work();	//工作方法
+} 
+interface TraineeInterface extends StaffInterface,StudentInterface	//实习生接口
+{
+	function Train();	//培训方法 
+}
+class Trainee implements TraineeInterface	//实习生类（实习生接口的实现类）
+{
+	private $name;
+	function __construct($traineename)
+	{
+		$this->name=$traineename;
+		echo $this->name."是一名毕业实习生,";
+		$this->Study();
+		$this->Train();
+		$this->Work();
+	}
+	public function Study()
+	{
+		echo "每周还需上课1天。";
+	}
+	public function Work()
+	{
+		echo "每周参加公司的实际工作3天。";
+	}
+	public function Train()
+	{
+		echo "每周参加公司的培训1天。";
+	}
+}
+$trainee1=new Trainee("罗英");
+?>

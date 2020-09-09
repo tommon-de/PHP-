@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,
+maximum-scale=1.0 user-scalable=no">
+<title>例9-8 自定义过滤函数</title>
+</head>
+
+<body>
+<?php
+	//自定义过滤函数
+	function form_deal($str)
+	{
+		$str=strip_tags($str);	//过滤html标签
+		$str=str_replace("'","",$str);	//单引号
+		$str=str_replace(";","",$str);	//分号
+		$str=str_replace("|","",$str);	//|分隔符
+		$str=str_replace(" ","",$str);//过滤全部空格
+		//破坏sql语句
+		$str=str_replace("and","",$str);	//and
+		$str=str_replace("or","",$str);	//or
+		$str=str_replace("exe","",$str);		//过滤可执行程序
+		$str=str_replace("where","",$str);	//破坏sql语句结构
+		$str=str_replace("count","",$str);	//过滤统计
+		$str=str_replace("select","",$str);
+		$str=str_replace("insert","",$str);
+		$str=str_replace("update","",$str);
+		$str=str_replace("(","",$str);
+		$str=str_replace(")","",$str);
+		if($str=="")
+		{ echo "数据输入非法!";
+			exit;
+		}else 
+			return $str; 
+	}
+?>
+</body>
+</html>

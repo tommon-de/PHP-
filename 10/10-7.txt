@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例10-7</title>
+</head>
+
+<body>
+<?php
+    if(isset($_COOKIE['uname']))
+        $username=$_COOKIE['uname'];    //提取用户名
+    if(isset($_COOKIE['upass']))
+        $userpass=$_COOKIE['upass'];    //提取密码
+    echo "用户名是".$username."<br>";
+    echo "用户密码是".$userpass;
+?>
+</body>
+</html>

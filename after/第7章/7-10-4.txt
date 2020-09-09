@@ -1,0 +1,9 @@
+﻿<?php
+	for($i=0;$i<10;$i++)
+		$A[$i]=rand(1,100);
+	$max_item=max($A);
+	$min_item=min($A);
+	echo "最大元素值为：".$max_item."<br>";
+	echo "最小元素值为:".$min_item."<br>";
+	echo "两者之差为".($max_item-$min_item);
+?>

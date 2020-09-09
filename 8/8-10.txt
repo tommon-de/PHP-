@@ -1,0 +1,24 @@
+<title>例8-10 final方法</title>
+<?php
+	class A	
+	{
+		final function test()
+		{
+			echo "A类的test方法<br>";
+		}
+		final function output()
+		{
+			echo "A类的output方法<br>";
+		}
+	}
+	class Sub_A extends A	//创建A类的子类
+	{
+		function output()	//重写output()
+		{
+			echo "子类的output方法<br>";
+		}
+	}
+	$obj=new Sub_A;
+	$obj->test();
+	$obj->output();
+?>

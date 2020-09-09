@@ -1,0 +1,20 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例11-8 mkdir()</title>
+</head>
+<body>
+<?php
+    $path="E:\\myphp\\newfolder";	//服务器中不存在E:\myphp这个路径
+    if(is_dir($path))
+      	echo "文件夹已经存在"; 
+    else
+        {   
+            if (mkdir($path,0777,true))   //创建多级目录
+                echo "创建文件夹成功"; 
+            else
+                echo "创建文件夹失败";
+        }
+?>
+</body>
+</html>

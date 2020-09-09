@@ -1,0 +1,14 @@
+<?php 
+	header("Content-type:image/jpeg");
+	$img=imagecreatetruecolor(400,100);//创建画布$img
+	$color=imagecolorallocate($img,0,0,0);//指定RGB颜色值
+	imagefill($img,0,0,$color);	//填充画布背景
+	$text_color_1=imagecolorallocate($img,230,230,0);//文字颜色1
+	$str_1="imagestring";
+	$str_2="罗浮山下四时春";
+	imagestring($img,5,10,20,$str_1,$text_color_1);	//5号字
+	imagestring($img,15,200,20,$str_1,$text_color_1);	//15号字
+	imagestring($img,5,10,50,$str_2,$text_color_1);	//中文字符串
+	imagejpeg($img);	//输出画布对象
+	imagedestroy($img);	//销毁画布对象
+?>

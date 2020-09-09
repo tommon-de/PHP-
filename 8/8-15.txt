@@ -1,0 +1,18 @@
+﻿<title>例8-15__autoload函数</title>
+<?php
+	//自动载入所要实例化的类
+	function __autoload($class_name){
+		//指定类文件路径
+		$class_path=$class_name.'.class.php';
+		if(file_exists($class_path)){
+			include_once($class_path);
+		}
+		else
+			echo "指定的类文件不存在";
+	}
+	//实例化ArtObject类成两个对象
+	$object1=new ArtObject('声乐基础',25);
+	$object1->Obj_info();
+	$object2=new ArtObject('钢琴演奏',30);
+	$object2->Obj_info();
+?>

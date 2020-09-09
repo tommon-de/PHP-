@@ -1,0 +1,60 @@
+﻿<!--应用练习第3题-->
+<form name="form1" method="post" action="">
+  <input type="submit" name="teacher" id="teacher" value="普通教师">
+  <input type="submit" name="programmer" id="programmer" value="程序员">
+  <input type="submit" name="itteacher" id="itteacher" value="计算机教师">
+</form>
+<?php
+	interface Teacher{	//教师接口
+		function teaching_design();
+	}
+	interface Programmer{	//程序员接口
+		function programme();
+	}
+	interface ITTeacher extends Teacher,Programmer{	//计算机教师接口
+		function speech();
+	}
+	class NormalTeacher implements Teacher{	//普通教师实现类
+		function __construct(){
+			$this->teaching_design();
+		}
+		function teaching_design()
+		{
+			echo "教学设计能力是每个教师的必备技能之一";
+		}
+	}
+	class ProgrammeDesigner implements Programmer{	//程序员实现类
+		function __construct(){
+			$this->programme();
+		}
+		function programme(){
+			echo "程序设计能力直接反映一名程序员的水平";
+		}
+	}
+	class ComputerTeacher implements ITTeacher{	//计算机教师实现类
+		function __construct(){
+			echo "计算机教师的能力结构如下：<br>";
+			$this->teaching_design();
+			$this->speech();
+			$this->programme();
+		}
+		function teaching_design()
+		{
+			echo "教学设计能力比较强<br>";
+		}
+		function programme()
+		{
+			echo "计算机教师也须具备良好的程序设计能力<br>";
+		}
+		function speech()
+		{
+			echo "演讲表现能力是基本功之一<br>";
+		}
+	}
+	if(isset($_POST['teacher']))
+		$t=new NormalTeacher;
+	if(isset($_POST['programmer']))
+		$p=new ProgrammeDesigner;
+	if(isset($_POST['itteacher']))
+		$tt=new ComputerTeacher;
+?>

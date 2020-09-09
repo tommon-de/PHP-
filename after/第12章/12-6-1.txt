@@ -1,0 +1,17 @@
+<?php
+	header("content-type:image/png");
+	$pic=imagecreatefromjpeg("pic.jpg");//打开目标图片
+	$info=getimagesize("pic.jpg");
+	//生成文字水印图片
+	$mark=imagecreatetruecolor(130,30);
+	$txt_color=imagecolorallocate($mark,250,250,0);	//水印文字的颜色
+	$bgcolor=imagecolorallocate($mark,0,0,0);//背景默认为黑色
+	$alpha=imagecolortransparent($mark,$bgcolor);
+	imagefill($mark,0,0,$alpha);	//背景透明化
+	$str="PHP水印练习";
+	imagettftext($mark,15,0,10,20,$txt_color,'simhei.ttf',$str);
+	//打上水印
+	imagecopymerge($pic,$mark,$info[0]-135,$info[1]-35,0,0,130,30,30);
+	imagepng($pic);//输出打水印后的图片
+	imagedestroy($pic);
+?>

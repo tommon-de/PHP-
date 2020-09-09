@@ -1,0 +1,19 @@
+<title>例8-9 final类</title>
+<?php
+	final class A		//创建一个终极类
+	{
+		function __construct()
+		{
+			echo "终极类的构造函数";
+		}
+	}
+	class Sub_A extends A	//创建A类的子类
+	{
+		function test()
+		{
+			echo "子类方法";
+		}
+	}
+	$obj=new Sub_A;
+	$obj->test();
+?>

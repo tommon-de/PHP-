@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例7-29</title>
+</head>
+
+<body>
+<?php
+    $arr1=array(1,2,3,4);
+	$arr2=array('a','b','c','d');
+    array_push($arr1,0);
+    array_push($arr2,'e','f');
+	print_r($arr1);
+	echo "<br>";
+	print_r($arr2);
+?>
+</body>
+</html>

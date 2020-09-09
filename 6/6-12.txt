@@ -1,0 +1,15 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>例6-12</title>
+</head>
+
+<body>
+<?php
+    $A=array("浅红","红","深红","暗红");
+    $B=str_replace("红","绿",$A); //将数组A元素中的“红”替换为“绿”
+    foreach($B as $k)
+        echo $k."、";
+?>
+</body>
+</html>
